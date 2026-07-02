@@ -53,7 +53,7 @@ class PostObserver
 
         foreach ($subscribers as $subscriber) {
             Mail::to($subscriber->email)
-                ->queue(new NewContentMail($content, $subscriber->token));
+                ->send(new NewContentMail($content, $subscriber->token));
         }
     }
 }

@@ -29,8 +29,8 @@ class JobOpportunityForm
                         ->maxLength(255)
                         ->placeholder('e.g. Content Writer Intern')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn (string $state, Set $set) =>
-                            $set('slug', Str::slug($state))
+                        ->afterStateUpdated(fn (?string $state, Set $set) =>
+                            $set('slug', $state ? Str::slug($state) : '')
                         )
                         ->columnSpanFull(),
 

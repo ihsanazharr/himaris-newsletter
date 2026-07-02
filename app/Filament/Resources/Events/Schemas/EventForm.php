@@ -28,8 +28,8 @@ class EventForm
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn (string $state, Set $set) =>
-                            $set('slug', Str::slug($state))
+                        ->afterStateUpdated(fn (?string $state, Set $set) =>
+                            $set('slug', $state ? Str::slug($state) : '')
                         )
                         ->columnSpanFull(),
 
