@@ -1,0 +1,104 @@
+<?php
+
+namespace App\Filament\Resources\Galleries\Schemas;
+
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+
+class GalleryForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema->components([
+
+            Section::make('Photo Information')
+                ->description('Add a photo to the gallery.')
+                ->columns(2)
+                ->schema([
+
+                    TextInput::make('title')
+                        ->label('Photo Title')
+                        ->required()
+                        ->maxLength(255)
+                        ->columnSpanFull(),
+
+                    Textarea::make('description')
+                        ->label('Description')
+                        ->rows(4)
+                        ->placeholder('Briefly describe this photo...')
+                        ->helperText('This text will appear below the body image on the detail page.')
+                        ->columnSpanFull(),
+
+                    DatePicker::make('date')
+                        ->label('Photo Date')
+                        ->displayFormat('d M Y'),
+
+                    TextInput::make('location')
+                        ->label('Location')
+                        ->maxLength(255)
+                        ->placeholder('e.g. Aula Gedung D, POLBAN'),
+
+                    Select::make('status')
+                        ->label('Status')
+                        ->required()
+                        ->options([
+                            'draft'     => 'Draft',
+                            'published' => 'Published',
+                            'archived'  => 'Archived',
+                        ])
+                        ->default('draft'),
+
+                    Select::make('user_id')
+                        ->label('Uploaded By')
+                        ->required()
+                        ->relationship('user', 'name')
+                        ->searchable()
+                        ->preload()
+                        ->default(fn () => auth()->id()),
+
+                ]),
+
+            Section::make('Thumbnail')
+                ->description('Shown on the gallery grid / listing page.')
+                ->schema([
+
+                    FileUpload::make('image')
+                        ->label('Thumbnail Photo')
+                        ->image()
+                        ->required()
+                        ->disk('public')
+                        ->directory('gallery/thumbnails')
+                        ->imageEditor()
+                        ->imageEditorAspectRatios(['4:3', '16:9', '1:1'])
+                        ->maxSize(4096)
+                        ->helperText('Displayed in the gallery grid. Recommended: 800×600px. Max 4MB.')
+                        ->columnSpanFull(),
+
+                ]),
+
+            Section::make('Body Image')
+                ->description('Displayed in the middle of the description on the detail page.')
+                ->schema([
+
+                    FileUpload::make('body_image')
+                        ->label('Body / Detail Image')
+                        ->image()
+                        ->nullable()
+                        ->disk('public')
+                        ->directory('gallery/body')
+                        ->imageEditor()
+                        ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
+                        ->maxSize(4096)
+                        ->helperText('Optional. Shown in the middle of the description on the detail page. Max 4MB.')
+                        ->columnSpanFull(),
+
+                ]),
+
+        ]);
+    }
+}
