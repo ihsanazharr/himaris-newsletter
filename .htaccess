@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Arahkan semua pengunjung langsung ke folder public/
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Keamanan tingkat tinggi: Blokir akses langsung ke file konfigurasi
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
