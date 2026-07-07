@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
+
 class AboutController extends Controller
 {
     public function index(string $tab = 'himaris')
@@ -12,6 +14,11 @@ class AboutController extends Controller
             abort(404);
         }
 
-        return view('about', compact('tab'));
+        $moments = Gallery::where('status', 'published')
+            ->latest()
+            ->limit(8)
+            ->get();
+
+        return view('about', compact('tab', 'moments'));
     }
 }

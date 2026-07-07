@@ -24,6 +24,12 @@ class JobOpportunityResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    protected static ?string $navigationLabel = 'Career Opportunities';
+
+    protected static ?string $modelLabel = 'Career Opportunity';
+
+    protected static ?string $pluralModelLabel = 'Career Opportunities';
+
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema

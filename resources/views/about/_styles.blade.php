@@ -1,9 +1,10 @@
 <style>
-.about-bar{background:var(--dark);padding-top:var(--nav-h);border-bottom:3px solid var(--gold);}
-.about-bar-inner{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;gap:0;overflow-x:auto;}
-.tab-link{padding:18px 28px;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-3px;font-family:var(--font);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.5);cursor:pointer;transition:color var(--transition),border-color var(--transition);text-decoration:none;display:inline-block;white-space:nowrap;}
-.tab-link.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-link:hover{color:rgba(255,255,255,.8);}
+.about-bar{background:linear-gradient(180deg,rgba(17,17,17,.98),rgba(17,17,17,.94));border-bottom:1px solid rgba(212,160,23,.16);box-shadow:0 8px 24px rgba(0,0,0,.12);position:relative;z-index:2;}
+.about-bar-inner{max-width:1160px;margin:0 auto;padding:8px 32px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;overflow-x:auto;scrollbar-width:none;}
+.about-bar-inner::-webkit-scrollbar{display:none;}
+.tab-btn,.tab-link{padding:8px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:999px;font-family:var(--font);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.66);cursor:pointer;transition:transform var(--transition),color var(--transition),background var(--transition),border-color var(--transition),box-shadow var(--transition);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;line-height:1.1;}
+.tab-btn.active,.tab-link.active{color:var(--black);background:var(--gold);border-color:var(--gold);box-shadow:0 8px 18px rgba(212,160,23,.18);}
+.tab-btn:hover,.tab-link:hover{color:var(--white);border-color:rgba(212,160,23,.3);transform:translateY(-1px);}
 .about-hero{background:var(--dark);padding:60px 0 72px;}
 .about-hero-inner{max-width:1160px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center;}
 .hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
@@ -48,6 +49,11 @@
 .socmed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .socmed-card{background:var(--white);border:1.5px solid var(--gray-light);border-radius:10px;padding:18px;transition:border-color var(--transition),transform var(--transition);}
 .socmed-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.socmed-media{position:relative;width:100%;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,rgba(212,160,23,.14),rgba(17,17,17,.06));margin-bottom:14px;border:1px solid var(--gray-light);}
+.socmed-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.socmed-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:rgba(17,17,17,.28);}
+.socmed-copy{display:flex;flex-direction:column;gap:10px;}
+.socmed-platform{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0;}
 .socmed-card p{font-size:.8rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px;}
 .socmed-link{font-size:.72rem;font-weight:600;color:var(--gold);}
 @media(max-width:900px){
@@ -55,7 +61,7 @@
   .hero-logo-box{display:none;}
   .vismis-grid{grid-template-columns:1fr;}
   .team-grid{grid-template-columns:1fr 1fr;}
-  .about-bar-inner{padding:0 20px;}
+  .about-bar-inner{padding:8px 20px;}
   .logo-symbol-grid{grid-template-columns:1fr;}
   .socmed-grid{grid-template-columns:1fr;}
 }

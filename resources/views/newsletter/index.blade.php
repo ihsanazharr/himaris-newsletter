@@ -114,29 +114,17 @@
   </div>
 </div>
 
-{{-- ===== SUBMISSION STRIP ===== --}}
-<div class="submit-strip">
-  <div class="submit-strip-inner">
-    <p class="submit-strip-text">
-      <strong>Want to write for us?</strong>
-      Share your story, campus experience, or artwork with the HIMARIS community.
+{{-- ===== SUBMISSION BUTTON ===== --}}
+<div style="background:var(--dark);border-bottom:2px solid var(--gold);padding:16px 32px;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="font-size:.84rem;color:rgba(255,255,255,.6);">
+      <strong style="color:var(--white);font-weight:600;">Want to write for us?</strong>
+      Share your story or campus experience with the HIMARIS community.
     </p>
-    <div class="submit-strip-btns">
-      <a href="https://forms.gle/XkAYYbgfQCLkJznS8"
-         target="_blank" rel="noopener noreferrer"
-         class="btn-strip article">
-        &#128221; Submit Article
-      </a>
-      <a href="https://forms.gle/CAqSS6x6wE1rbUHX6"
-         target="_blank" rel="noopener noreferrer"
-         class="btn-strip artwork">
-        &#127912; Submit Artwork
-      </a>
-      <a href="{{ route('submission-guidelines') }}"
-         class="btn-strip guide">
-        Guidelines &rarr;
-      </a>
-    </div>
+    <a href="{{ route('submission-guidelines') }}"
+       style="display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--gold);color:var(--black);font-weight:700;font-size:.8rem;border-radius:var(--radius);border:1.5px solid var(--gold);text-decoration:none;white-space:nowrap;transition:all .2s;">
+      &#128221; Submission Guidelines &rarr;
+    </a>
   </div>
 </div>
 
@@ -145,6 +133,9 @@
     <div class="explore-header">
       <h2 class="explore-title">All Articles</h2>
       <form method="GET" action="{{ route('newsletter.index') }}">
+        @if(request()->get('category'))
+          <input type="hidden" name="category" value="{{ request()->get('category') }}"/>
+        @endif
         <div class="filter-search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/>
@@ -155,6 +146,25 @@
                  placeholder="Search articles..."/>
         </div>
       </form>
+    </div>
+
+    {{-- Category filter tabs --}}
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;">
+      @foreach([
+        ''                 => 'All',
+        'news'            => 'News',
+        'scholarship'     => 'Scholarship',
+        'announcement'    => 'Announcement',
+        'article'         => 'Article',
+        'cafe-review'     => 'Cafe Review',
+        'alumni'          => 'Alumni Profile',
+        'self-improvement'=> 'Self-Improvement',
+        'upcoming-event'  => 'Upcoming Event',
+        'miscellaneous'   => 'Miscellaneous',
+      ] as $val => $label)
+        <a href="{{ route('newsletter.index', array_merge(request()->only('search'), $val ? ['category' => $val] : [])) }}"
+           style="display:inline-block;padding:6px 14px;font-size:.75rem;font-weight:600;border-radius:20px;border:1.5px solid {{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray-light)' }};background:{{ request()->get('category','') === $val ? 'var(--gold)' : 'var(--white)' }};color:{{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray)' }};text-decoration:none;transition:all .18s;">{{ $label }}</a>
+      @endforeach
     </div>
 
     @if($posts->count())

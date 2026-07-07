@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="@yield('meta_description', 'Himaris Newsletter — Campus news, events, scholarships, and opportunities.')"/>
   <title>@yield('title', 'Himaris Newsletter')</title>
+  <link rel="icon" type="image/png" href="{{ asset('images/logonewsletter.png') }}"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet"/>
@@ -17,7 +18,7 @@
 <nav class="navbar" id="mainNav">
   <a href="{{ route('home') }}" class="nav-brand">
     <div class="nav-logo">
-      <img src="{{ asset('images/logohimaris.png') }}" alt="HIMARIS Logo"/>
+      <img src="{{ asset('images/logonewsletter.png') }}" alt="Himaris Newsletter Logo"/>
     </div>
     Himaris Newsletter
   </a>
@@ -28,7 +29,7 @@
          class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
     </li>
     <li class="nav-dropdown">
-      <a href="#" class="{{ request()->routeIs('about') ? 'active' : '' }}">
+      <a href="#" class="{{ request()->routeIs('about') || request()->routeIs('about-newsletter') ? 'active' : '' }}">
         About Us
         <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,12 +39,20 @@
         <a href="{{ route('about', 'himaris') }}">HIMARIS</a>
         <a href="{{ route('about', 'esaa') }}">ESAA</a>
         <a href="{{ route('about', 'english-dept') }}">English Department</a>
-        <a href="{{ route('gallery.index') }}">Gallery</a>
+        <a href="{{ route('about-newsletter') }}">Himaris Newsletter</a>
       </div>
     </li>
-    <li>
-      <a href="{{ route('newsletter.index') }}"
-         class="{{ request()->routeIs('newsletter.*') ? 'active' : '' }}">Newsletter</a>
+    <li class="nav-dropdown">
+      <a href="#" class="{{ request()->routeIs('newsletter.*') || request()->routeIs('gallery.*') ? 'active' : '' }}">
+        Newsletter
+        <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="dropdown-menu">
+        <a href="{{ route('newsletter.index') }}">Articles</a>
+        <a href="{{ route('gallery.index') }}">Our Moments</a>
+      </div>
     </li>
     <li>
       <a href="{{ route('student-resources.index') }}"
@@ -51,7 +60,7 @@
     </li>
     <li>
       <a href="{{ route('jobs.index') }}"
-         class="{{ request()->routeIs('jobs.*') ? 'active' : '' }}">Job Opportunities</a>
+         class="{{ request()->routeIs('jobs.*') ? 'active' : '' }}">Career Opportunities</a>
     </li>
   </ul>
 
@@ -74,7 +83,7 @@
   <div class="footer-inner">
     <div class="footer-brand-row">
       <div class="footer-logo">
-        <img src="{{ asset('images/logohimaris.png') }}" alt="HIMARIS Logo"/>
+        <img src="{{ asset('images/logonewsletter.png') }}" alt="Himaris Newsletter Logo"/>
       </div>
       <span class="footer-brand-name">Himaris Newsletter</span>
     </div>
@@ -91,7 +100,7 @@
       </div>
       <p class="footer-meta">Stay connected with us for updates.</p>
       <div class="footer-socials">
-        <a href="https://instagram.com/himarisnewsletter" target="_blank" aria-label="Instagram">
+        <a href="https://instagram.com/himaris.newsletter" target="_blank" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
             <rect x="2" y="2" width="20" height="20" rx="5"/>
             <circle cx="12" cy="12" r="4"/>

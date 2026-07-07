@@ -14,11 +14,16 @@
 @section('content')
 
 {{-- TAB BAR --}}
-<div class="about-bar">
+<div class="about-bar" style="margin-top:var(--nav-h)">
   <div class="about-bar-inner">
     <button class="tab-btn {{ $tab === 'himaris' ? 'active' : '' }}" data-tab="himaris">HIMARIS</button>
     <button class="tab-btn {{ $tab === 'esaa' ? 'active' : '' }}" data-tab="esaa">ESAA</button>
     <button class="tab-btn {{ $tab === 'english-dept' ? 'active' : '' }}" data-tab="english-dept">English Department</button>
+    <a href="{{ route('about-newsletter') }}"
+       class="tab-btn"
+       style="text-decoration:none;display:inline-flex;align-items:center;gap:5px">
+      Himaris Newsletter
+    </a>
   </div>
 </div>
 
@@ -41,7 +46,7 @@
 
 @push('scripts')
 <script>
-  document.querySelectorAll('.tab-btn').forEach(btn => {
+  document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
     btn.addEventListener('click', () => {
       const tab = btn.dataset.tab;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));

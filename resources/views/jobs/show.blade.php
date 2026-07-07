@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $job->title . ' — Job Opportunities — Himaris Newsletter')
+@section('title', $job->title . ' — Career Opportunities — Himaris Newsletter')
 
 @section('content')
 
@@ -77,7 +77,7 @@
       </a>
     @endif
 
-    <a href="{{ route('jobs.index') }}" class="btn-outline" style="justify-content:center">← Back to Jobs</a>
+    <a href="{{ route('jobs.index') }}" class="btn-outline" style="justify-content:center">← Back to Career Opportunities</a>
   </aside>
 </div>
 

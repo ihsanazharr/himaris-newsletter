@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Job Opportunities — Himaris Newsletter')
+@section('title', 'Career Opportunities — Himaris Newsletter')
 
 @push('styles')
 <style>
@@ -14,7 +14,7 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
-    <h1>Job Opportunities</h1>
+    <h1>Career Opportunities</h1>
     <p>Curated internships, full-time roles, and freelance gigs for English students and fresh graduates.</p>
     <div class="page-header-stats">
       <div class="stat-item">

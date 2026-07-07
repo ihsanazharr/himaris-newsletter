@@ -141,22 +141,13 @@
           <div class="bank-logo">BCA</div>
           <div style="flex:1">
             <p class="bank-name">Bank Central Asia</p>
-            <p class="bank-number">1234567890</p>
-            <p class="bank-holder">a.n. HIMARIS POLBAN</p>
+            <p class="bank-number">1393728713</p>
+            <p class="bank-holder">BCA A/N DEVIANI PUTRI AZZAHRA</p>
           </div>
-          <button class="btn-copy" data-num="1234567890" onclick="copyNum(this)">Copy</button>
-        </div>
-        <div class="bank-item">
-          <div class="bank-logo">BSI</div>
-          <div style="flex:1">
-            <p class="bank-name">Bank Syariah Indonesia</p>
-            <p class="bank-number">0987654321</p>
-            <p class="bank-holder">a.n. HIMARIS POLBAN</p>
-          </div>
-          <button class="btn-copy" data-num="0987654321" onclick="copyNum(this)">Copy</button>
+          <button class="btn-copy" data-num="1393728713" onclick="copyNum(this)">Copy</button>
         </div>
       </div>
-      <p class="bank-note"><strong>Important:</strong> After transferring, please confirm via Instagram DM or email so we can send you a receipt.</p>
+      <p class="bank-note"><strong>Important:</strong> QRIS menyusul.</p>
     </div>
   </div>
 

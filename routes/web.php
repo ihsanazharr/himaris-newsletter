@@ -21,6 +21,7 @@ Route::get('/about/{tab?}', [AboutController::class, 'index'])
 // Newsletter (Posts)
 Route::get('/newsletter', [PostController::class, 'index'])->name('newsletter.index');
 Route::get('/newsletter/{slug}', [PostController::class, 'show'])->name('newsletter.show');
+Route::view('/about-newsletter', 'pages.about-newsletter')->name('about-newsletter');
 
 // Student Resources (Events)
 Route::get('/student-resources', [EventController::class, 'index'])->name('student-resources.index');

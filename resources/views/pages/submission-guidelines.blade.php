@@ -180,7 +180,7 @@
     Butuh bantuan? Hubungi kami via
     <a href="mailto:himaris@polban.ac.id" style="color:var(--gold);font-weight:600;">himaris@polban.ac.id</a>
     atau DM Instagram
-    <a href="https://instagram.com/himaris.newsletter" target="_blank" style="color:var(--gold);font-weight:600;">@himarisnewsletter</a>
+    <a href="https://instagram.com/himaris.newsletter" target="_blank" style="color:var(--gold);font-weight:600;">@himaris.newsletter</a>
   </p>
 
 </div>
