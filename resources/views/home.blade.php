@@ -74,7 +74,7 @@
       <img src="{{ asset('images/logonewsletter.png') }}" alt="Himaris Newsletter Logo"/>
     </div>
     <h1 class="hero-title">Stay Informed</h1>
-    <p class="hero-sub">Your daily dose of campus news, stories, and insights</p>
+    <p class="hero-sub">News, Stories, and Opportunities</p>
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>

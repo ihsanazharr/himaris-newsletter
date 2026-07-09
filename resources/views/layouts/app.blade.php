@@ -147,7 +147,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; {{ date('Y') }} Himaris Newsletter &middot; Aditya Ependi &middot; Deviani Putri Azzahra &middot; Dra. Esti Sugiharti, MA., Ph.D.</p>
+    <p>&copy; {{ date('Y') }} Himaris Newsletter &middot; Aditya Ependi Putra&middot; Deviani Putri Azzahra &middot; Dra. Esti Sugiharti, MA., Ph.D.</p>
     <p>English Department, Politeknik Negeri Bandung</p>
   </div>
 </footer>
