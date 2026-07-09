@@ -13,12 +13,25 @@ class EventController extends Controller
 
         $query = Event::where('status', 'published')->orderBy('start_date', 'asc');
 
-        if ($filter === 'upcoming') $query->where('start_date', '>=', now());
-        elseif ($filter === 'past')   $query->where('start_date', '<',  now());
+        if ($filter === 'upcoming') {
+            $query->where(function ($q) {
+                $q->where('start_date', '>=', now())
+                  ->orWhere('end_date', '>=', now());
+            });
+        } elseif ($filter === 'past') {
+            $query->where('start_date', '<', now())
+                  ->where(function ($q) {
+                      $q->whereNull('end_date')
+                        ->orWhere('end_date', '<', now());
+                  });
+        }
 
         $events   = $query->paginate(9);
         $featured = Event::where('status', 'published')
-            ->where('start_date', '>=', now())
+            ->where(function ($q) {
+                $q->where('start_date', '>=', now())
+                  ->orWhere('end_date', '>=', now());
+            })
             ->orderBy('start_date', 'asc')
             ->limit(3)
             ->get();
@@ -34,7 +47,10 @@ class EventController extends Controller
 
         $moreEvents = Event::where('status', 'published')
             ->where('id', '!=', $event->id)
-            ->where('start_date', '>=', now())
+            ->where(function ($q) {
+                $q->where('start_date', '>=', now())
+                  ->orWhere('end_date', '>=', now());
+            })
             ->orderBy('start_date', 'asc')
             ->limit(3)
             ->get();

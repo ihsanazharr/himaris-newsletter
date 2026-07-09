@@ -15,7 +15,10 @@ class HomeController extends Controller
             ->get();
 
         $upcomingEvents = Event::where('status', 'published')
-            ->where('start_date', '>=', now())
+            ->where(function ($q) {
+                $q->where('start_date', '>=', now())
+                  ->orWhere('end_date', '>=', now());
+            })
             ->orderBy('start_date', 'asc')
             ->limit(3)
             ->get();

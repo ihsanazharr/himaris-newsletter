@@ -120,59 +120,91 @@
     @endif
   </div>
 
-  {{-- Description split around body image --}}
+  {{-- Description split around body image dynamically by paragraph --}}
   @php
     $desc = $gallery->description ?? '';
-    // Split description roughly at the midpoint (by sentence or word boundary)
-    $half = '';
-    $rest = '';
-    if ($desc) {
-      $mid = (int) (mb_strlen($desc) / 2);
-      // Find the nearest space at or after midpoint to avoid cutting words
-      $splitAt = mb_strpos($desc, ' ', $mid);
-      if ($splitAt === false) {
-        $half = $desc;
-      } else {
-        $half = mb_substr($desc, 0, $splitAt);
-        $rest = mb_substr($desc, $splitAt + 1);
-      }
-    }
+    // Split by newlines (paragraphs)
+    $paragraphs = array_values(array_filter(explode("\n", str_replace("\r", "", $desc)), function($p) {
+        return trim($p) !== '';
+    }));
+    
+    $totalParagraphs = count($paragraphs);
+    $middleIndex = $totalParagraphs > 1 ? (int) ($totalParagraphs / 2) : 0;
+    $imagePlaced = false;
   @endphp
 
-  @if($desc)
-    <div class="gal-desc-top">
-      {{ $half }}
-    </div>
-  @endif
-
-  @if($gallery->body_image)
-    <figure class="gal-body-figure">
-      <img
-        src="{{ asset('storage/' . $gallery->body_image) }}"
-        alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
-        class="gal-body-image"
-      />
-      @if($gallery->body_image_caption || $gallery->body_image_copyright)
-        <figcaption class="gal-body-caption">
-          @if($gallery->body_image_caption)
-            <span>{{ $gallery->body_image_caption }}</span>
+  <div style="font-size:0.93rem;color:#444;line-height:1.85;padding:20px 0;border-top:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light)">
+    @if($totalParagraphs > 0)
+      @foreach($paragraphs as $index => $para)
+        <p style="margin-bottom:18px">{!! nl2br(e($para)) !!}</p>
+        
+        {{-- Place body image in the middle (e.g. after the middle paragraph) --}}
+        @if($gallery->body_image && ($index + 1) === $middleIndex)
+          <figure class="gal-body-figure">
+            <img
+              src="{{ asset('storage/' . $gallery->body_image) }}"
+              alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+              class="gal-body-image"
+            />
+            @if($gallery->body_image_caption || $gallery->body_image_copyright)
+              <figcaption class="gal-body-caption">
+                @if($gallery->body_image_caption)
+                  <span>{{ $gallery->body_image_caption }}</span>
+                @endif
+                @if($gallery->body_image_copyright)
+                  <small>© {{ $gallery->body_image_copyright }}</small>
+                @endif
+              </figcaption>
+            @endif
+          </figure>
+          @php $imagePlaced = true; @endphp
+        @endif
+      @endforeach
+      
+      {{-- Fallback: Place at the end if not already placed (e.g. only 1 paragraph) --}}
+      @if($gallery->body_image && !$imagePlaced)
+        <figure class="gal-body-figure">
+          <img
+            src="{{ asset('storage/' . $gallery->body_image) }}"
+            alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+            class="gal-body-image"
+          />
+          @if($gallery->body_image_caption || $gallery->body_image_copyright)
+            <figcaption class="gal-body-caption">
+              @if($gallery->body_image_caption)
+                <span>{{ $gallery->body_image_caption }}</span>
+              @endif
+              @if($gallery->body_image_copyright)
+                <small>© {{ $gallery->body_image_copyright }}</small>
+              @endif
+            </figcaption>
           @endif
-          @if($gallery->body_image_copyright)
-            <small>© {{ $gallery->body_image_copyright }}</small>
-          @endif
-        </figcaption>
+        </figure>
       @endif
-    </figure>
-  @endif
-
-  @if($rest)
-    <div class="gal-desc-bottom">
-      {{ $rest }}
-    </div>
-  @elseif(!$desc && !$gallery->body_image)
-    {{-- fallback border if nothing to show --}}
-    <div style="border-top:1px solid var(--gray-light);padding-top:22px"></div>
-  @endif
+      
+    @else
+      {{-- If no description, but image is uploaded, just show centered image --}}
+      @if($gallery->body_image)
+        <figure class="gal-body-figure" style="margin:12px auto">
+          <img
+            src="{{ asset('storage/' . $gallery->body_image) }}"
+            alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+            class="gal-body-image"
+          />
+          @if($gallery->body_image_caption || $gallery->body_image_copyright)
+            <figcaption class="gal-body-caption">
+              @if($gallery->body_image_caption)
+                <span>{{ $gallery->body_image_caption }}</span>
+              @endif
+              @if($gallery->body_image_copyright)
+                <small>© {{ $gallery->body_image_copyright }}</small>
+              @endif
+            </figcaption>
+          @endif
+        </figure>
+      @endif
+    @endif
+  </div>
 
   <div style="margin-top:24px">
     <a href="{{ route('gallery.index') }}" class="btn-outline" style="font-size:0.82rem;padding:8px 18px">

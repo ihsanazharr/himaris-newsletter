@@ -243,8 +243,6 @@
   </div>
 </div>
 
-@include('partials.social-media-publications')
-
 {{-- OUR MOMENTS --}}
 <div class="abn-section" style="background:var(--off-white)">
   <div class="abn-inner">
@@ -280,6 +278,8 @@
     @endif
   </div>
 </div>
+
+@include('partials.social-media-publications')
 
 {{-- WRITE FOR US CTA --}}
 <div class="abn-section" style="background:var(--white)">
