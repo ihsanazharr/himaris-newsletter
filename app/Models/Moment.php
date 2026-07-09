@@ -4,22 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Gallery extends Model
+class Moment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'title',
-        'image',
-        'body_image',
+        'thumbnail',
         'description',
         'date',
         'location',
-        'status',
-        'user_id',
         'author_name',
+        'status',
     ];
 
     protected function casts(): array
@@ -27,10 +24,5 @@ class Gallery extends Model
         return [
             'date' => 'date',
         ];
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }

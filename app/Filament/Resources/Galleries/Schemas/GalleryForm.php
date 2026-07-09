@@ -53,13 +53,11 @@ class GalleryForm
                         ])
                         ->default('draft'),
 
-                    Select::make('user_id')
-                        ->label('Uploaded By')
-                        ->required()
-                        ->relationship('user', 'name')
-                        ->searchable()
-                        ->preload()
-                        ->default(fn () => auth()->id()),
+                    TextInput::make('author_name')
+                        ->label('Artwork By / Uploaded By')
+                        ->maxLength(255)
+                        ->placeholder('e.g. Shilma Maudini')
+                        ->helperText('Name of the artist or uploader — any name, no account needed.'),
 
                 ]),
 

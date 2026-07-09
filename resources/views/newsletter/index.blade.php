@@ -96,7 +96,7 @@
                 <div class="feat-card-tag">{{ $post->category }}</div>
                 <div class="feat-card-title">{{ $post->title }}</div>
                 <div class="feat-card-meta">
-                  By {{ $post->user->name ?? 'HIMARIS' }}
+                  By {{ $post->author_name ?? $post->user?->name ?? 'HIMARIS' }}
                   &mdash;
                   {{ $post->published_at?->format('d M Y') ?? $post->created_at->format('d M Y') }}
                 </div>
@@ -151,16 +151,15 @@
     {{-- Category filter tabs --}}
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;">
       @foreach([
-        ''                 => 'All',
-        'news'            => 'News',
-        'scholarship'     => 'Scholarship',
-        'announcement'    => 'Announcement',
-        'article'         => 'Article',
-        'cafe-review'     => 'Cafe Review',
-        'alumni'          => 'Alumni Profile',
-        'self-improvement'=> 'Self-Improvement',
-        'upcoming-event'  => 'Upcoming Event',
-        'miscellaneous'   => 'Miscellaneous',
+        ''                  => 'All',
+        'whats-new'         => "What's New",
+        'self-improvement'  => 'Self-Improvement',
+        'entertainment'     => 'Entertainment',
+        'miscellaneous'     => 'Miscellaneous',
+        'alumni-profile'    => 'Alumni Profile',
+        'review'            => 'Review',
+        'upcoming-event'    => 'Upcoming Event',
+        'sponsored-content' => 'Sponsored',
       ] as $val => $label)
         <a href="{{ route('newsletter.index', array_merge(request()->only('search'), $val ? ['category' => $val] : [])) }}"
            style="display:inline-block;padding:6px 14px;font-size:.75rem;font-weight:600;border-radius:20px;border:1.5px solid {{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray-light)' }};background:{{ request()->get('category','') === $val ? 'var(--gold)' : 'var(--white)' }};color:{{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray)' }};text-decoration:none;transition:all .18s;">{{ $label }}</a>

@@ -22,6 +22,7 @@ class JobOpportunity extends Model
         'thumbnail',
         'status',
         'user_id',
+        'author_name',
     ];
 
     protected function casts(): array

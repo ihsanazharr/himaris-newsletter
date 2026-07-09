@@ -51,14 +51,11 @@ class EventForm
                         ])
                         ->default('draft'),
 
-                    // user_id — officer yang membuat event
-                    Select::make('user_id')
-                        ->label('Created By (Officer)')
-                        ->required()
-                        ->relationship('user', 'name')
-                        ->searchable()
-                        ->preload()
-                        ->default(fn () => auth()->id()),
+                    TextInput::make('author_name')
+                        ->label('Created By')
+                        ->maxLength(255)
+                        ->placeholder('e.g. Aurellia Annisa')
+                        ->helperText('Name of the officer who created this entry.'),
 
                     TextInput::make('organizer')
                         ->label('Organizer')

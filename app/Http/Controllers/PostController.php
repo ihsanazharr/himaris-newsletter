@@ -15,7 +15,8 @@ class PostController extends Controller
             $query->where('category', $request->category);
         }
         if ($request->filled('search')) {
-            $query->where('title', 'ilike', '%' . $request->search . '%');
+            $lower = strtolower($request->search);
+            $query->whereRaw('LOWER(title) LIKE ?', ["%{$lower}%"]);
         }
 
         $posts    = $query->paginate(9);

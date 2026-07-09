@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
-use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -48,14 +47,14 @@ class PostForm
                         ->required()
                         ->searchable()
                         ->options([
-                            'news'             => '📰 News Report',
-                            'scholarship'      => '🎓 Scholarship',
-                            'announcement'     => '📣 Announcement',
-                            'cafe-review'      => '☕ Cafe Review',
-                            'alumni'           => '👤 Alumni Profile',
+                            'whats-new'        => "📰 What's New",
                             'self-improvement' => '🌱 Self-Improvement',
-                            'upcoming-event'   => '📅 Upcoming Event',
+                            'entertainment'    => '🎬 Entertainment',
                             'miscellaneous'    => '✨ Miscellaneous',
+                            'alumni-profile'   => '👤 Inspirational Alumni & Current Students Profile',
+                            'review'           => '⭐ Review',
+                            'upcoming-event'   => '📅 Upcoming Event',
+                            'sponsored-content'=> '🤝 Sponsored Content',
                         ]),
 
                     Select::make('status')
@@ -68,14 +67,11 @@ class PostForm
                         ])
                         ->default('draft'),
 
-                    // user_id — pakai officer yang login atau pilih dari daftar user
-                    Select::make('user_id')
-                        ->label('Author (Officer)')
-                        ->required()
-                        ->relationship('user', 'name')
-                        ->searchable()
-                        ->preload()
-                        ->default(fn () => auth()->id()),
+                    TextInput::make('author_name')
+                        ->label('Author')
+                        ->maxLength(255)
+                        ->placeholder('e.g. Nurfalidza Nisrina')
+                        ->helperText('Type the author\'s full name — does not need to be a registered user.'),
 
                     DateTimePicker::make('published_at')
                         ->label('Publish Date & Time')

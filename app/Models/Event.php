@@ -21,6 +21,7 @@ class Event extends Model
         'organizer',
         'status',
         'user_id',
+        'author_name',
     ];
 
     protected function casts(): array

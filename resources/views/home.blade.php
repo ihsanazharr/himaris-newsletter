@@ -132,7 +132,7 @@
               <span class="article-card-tag">{{ $post->category }}</span>
               <h3 class="article-card-title">{{ $post->title }}</h3>
               <p class="article-card-meta">
-                By {{ $post->user->name ?? 'HIMARIS' }}
+                By {{ $post->author_name ?? $post->user?->name ?? 'HIMARIS' }}
                 &mdash;
                 {{ $post->published_at?->format('d M Y') ?? $post->created_at->format('d M Y') }}
               </p>
@@ -201,6 +201,8 @@
   </div>
 </section>
 @endif
+
+@include('partials.social-media-publications')
 
 {{-- ===== WRITE FOR US BANNER ===== --}}
 <section class="write-banner reveal">

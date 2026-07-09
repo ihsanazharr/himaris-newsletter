@@ -20,9 +20,10 @@ class JobOpportunityController extends Controller
 
         if ($search) {
             $query->where(function ($q) use ($search) {
-                $q->where('title', 'ilike', "%{$search}%")
-                  ->orWhere('company', 'ilike', "%{$search}%")
-                  ->orWhere('description', 'ilike', "%{$search}%");
+                $lower = strtolower($search);
+                $q->whereRaw('LOWER(title) LIKE ?', ["%{$lower}%"])
+                  ->orWhereRaw('LOWER(company) LIKE ?', ["%{$lower}%"])
+                  ->orWhereRaw('LOWER(description) LIKE ?', ["%{$lower}%"]);
             });
         }
 

@@ -13,7 +13,7 @@
 
 @section('content')
 
-{{-- TAB BAR --}}
+{{-- TAB BAR — margin-top pushes it below fixed navbar --}}
 <div class="about-bar" style="margin-top:var(--nav-h)">
   <div class="about-bar-inner">
     <button class="tab-btn {{ $tab === 'himaris' ? 'active' : '' }}" data-tab="himaris">HIMARIS</button>
@@ -21,24 +21,20 @@
     <button class="tab-btn {{ $tab === 'english-dept' ? 'active' : '' }}" data-tab="english-dept">English Department</button>
     <a href="{{ route('about-newsletter') }}"
        class="tab-btn"
-       style="text-decoration:none;display:inline-flex;align-items:center;gap:5px">
+       style="text-decoration:none">
       Himaris Newsletter
     </a>
   </div>
 </div>
 
-{{-- HIMARIS PANEL --}}
-<div class="tab-panel {{ $tab === 'himaris' ? 'active' : '' }}" id="panel-himaris">
+{{-- PANELS --}}
+<div id="panel-himaris" class="tab-panel {{ $tab === 'himaris' ? 'active' : '' }}">
   @include('about._himaris')
 </div>
-
-{{-- ESAA PANEL --}}
-<div class="tab-panel {{ $tab === 'esaa' ? 'active' : '' }}" id="panel-esaa">
+<div id="panel-esaa" class="tab-panel {{ $tab === 'esaa' ? 'active' : '' }}">
   @include('about._esaa')
 </div>
-
-{{-- ENGLISH DEPT PANEL --}}
-<div class="tab-panel {{ $tab === 'english-dept' ? 'active' : '' }}" id="panel-english-dept">
+<div id="panel-english-dept" class="tab-panel {{ $tab === 'english-dept' ? 'active' : '' }}">
   @include('about._engdept')
 </div>
 
@@ -49,7 +45,7 @@
   document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
     btn.addEventListener('click', () => {
       const tab = btn.dataset.tab;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('panel-' + tab).classList.add('active');

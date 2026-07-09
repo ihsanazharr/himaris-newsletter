@@ -58,7 +58,7 @@
         <span class="post-meta-icon">✍️</span>
         <div>
           <div class="post-meta-label">Author</div>
-          <p class="post-meta-val">{{ $post->user->name ?? 'Unknown' }}</p>
+          <p class="post-meta-val">{{ $post->author_name ?? $post->user?->name ?? 'Unknown' }}</p>
         </div>
       </div>
     </div>
@@ -101,5 +101,7 @@
     ← Back to Newsletter
   </a>
 </div>
+
+@include('partials.social-media-publications')
 
 @endsection

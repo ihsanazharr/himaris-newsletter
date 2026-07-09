@@ -34,38 +34,45 @@
 .abn-logo-box img { width: 90px; object-fit: contain; }
 
 .abn-tabs {
-  margin-top: var(--nav-h);
-  padding: 8px 32px 0;
-  background: linear-gradient(180deg, rgba(17,17,17,.98) 0%, rgba(17,17,17,.94) 100%);
-  border-bottom: 1px solid rgba(212,160,23,.16);
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  background: var(--dark);
+  border-bottom: 2px solid rgba(212,160,23,.25);
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 10;
 }
 .abn-tabs-inner {
-  max-width: 900px;
+  max-width: 1160px;
   margin: 0 auto;
+  padding: 0 32px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-bottom: 12px;
+  gap: 4px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
 }
+.abn-tabs-inner::-webkit-scrollbar { display: none; }
 .abn-tab {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.66);
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  color: rgba(255,255,255,.5);
   text-decoration: none;
-  font-size: .78rem;
+  font-family: var(--font);
+  font-size: .8rem;
   font-weight: 600;
-  line-height: 1.1;
-  transition: transform var(--transition), color var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+  transition: color .18s, border-color .18s;
+  cursor: pointer;
 }
-.abn-tab:hover { color: var(--white); border-color: rgba(212,160,23,.3); transform: translateY(-1px); }
-.abn-tab.active { color: var(--black); background: var(--gold); border-color: var(--gold); box-shadow: 0 8px 18px rgba(212,160,23,.18); }
+.abn-tab:hover { color: rgba(255,255,255,.9); border-color: transparent; transform: none; }
+.abn-tab.active { color: var(--gold); border-bottom-color: var(--gold); background: none; box-shadow: none; }
 
 .abn-section { padding: 72px 32px; }
 .abn-inner { max-width: 900px; margin: 0 auto; }
@@ -186,6 +193,9 @@
 @endpush
 
 @section('content')
+
+{{-- Spacer below fixed navbar --}}
+<div style="height:var(--nav-h)"></div>
 
 <div class="abn-tabs">
   <div class="abn-tabs-inner">
@@ -328,6 +338,42 @@
         Follow @himaris.newsletter →
       </a>
     </div>
+  </div>
+</div>
+
+{{-- OUR MOMENTS --}}
+<div class="abn-section" style="background:var(--off-white)">
+  <div class="abn-inner">
+    <h2 class="abn-h2 reveal">&#128247; Our Moments</h2>
+    <p class="abn-body reveal" style="margin-bottom:32px;text-align:center">
+      A collection of photos capturing the spirit, activities, and memories of HIMARIS.
+    </p>
+
+    @if($moments->count())
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        @foreach($moments as $moment)
+          <div class="reveal"
+               style="aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid transparent;transition:border-color .2s,transform .2s;cursor:default;"
+               onmouseover="this.style.borderColor='var(--gold)';this.style.transform='scale(1.03)'"
+               onmouseout="this.style.borderColor='transparent';this.style.transform='scale(1)'">
+            @if($moment->thumbnail)
+              <img src="{{ asset('storage/' . $moment->thumbnail) }}"
+                   alt="{{ $moment->title }}"
+                   title="{{ $moment->title }}{{ $moment->date ? ' — ' . $moment->date->format('d M Y') : '' }}"
+                   style="width:100%;height:100%;object-fit:cover;display:block"/>
+            @else
+              <div style="width:100%;height:100%;background:var(--gray-light);display:flex;align-items:center;justify-content:center;font-size:2.5rem">📷</div>
+            @endif
+          </div>
+        @endforeach
+      </div>
+    @else
+      <div style="text-align:center;padding:60px 32px;background:var(--white);border-radius:var(--radius-lg);border:1.5px dashed var(--gray-light)">
+        <div style="font-size:3rem;margin-bottom:14px">📷</div>
+        <p style="font-weight:700;color:var(--dark);margin-bottom:6px">No moments yet</p>
+        <p style="font-size:.84rem;color:var(--gray)">Photos will appear here once published from the admin panel.</p>
+      </div>
+    @endif
   </div>
 </div>
 

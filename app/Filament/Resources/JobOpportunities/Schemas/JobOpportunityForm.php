@@ -86,13 +86,11 @@ class JobOpportunityForm
                         ->helperText('Direct link where applicants can apply.')
                         ->columnSpanFull(),
 
-                    Select::make('user_id')
-                        ->label('Posted By (Officer)')
-                        ->required()
-                        ->relationship('user', 'name')
-                        ->searchable()
-                        ->preload()
-                        ->default(fn () => auth()->id()),
+                    TextInput::make('author_name')
+                        ->label('Posted By')
+                        ->maxLength(255)
+                        ->placeholder('e.g. Zahra Zanisya')
+                        ->helperText('Name of the officer who posted this opportunity.'),
 
                 ]),
 

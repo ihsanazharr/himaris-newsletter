@@ -51,7 +51,7 @@
       </a>
       <div class="dropdown-menu">
         <a href="{{ route('newsletter.index') }}">Articles</a>
-        <a href="{{ route('gallery.index') }}">Our Moments</a>
+        <a href="{{ route('gallery.index') }}">Gallery</a>
       </div>
     </li>
     <li>
@@ -92,11 +92,15 @@
       <div class="footer-col-title">Contact</div>
       <div style="margin-bottom:12px">
         <div class="footer-label">Email</div>
-        <a href="mailto:contact@himarisnewsletter.com" class="footer-val">contact@himarisnewsletter.com</a>
+        <a href="mailto:contact@himarisnewsletter.com" class="footer-val">digital.newsletter24@gmail.com</a>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">WhatsApp</div>
+        <a href="https://wa.me/6285524970194" target="_blank" class="footer-val">+62 855-2497-0194 <span style="font-size:.7rem;color:rgba(255,255,255,.4)">(Aditya)</span></a>
       </div>
       <div style="margin-bottom:12px">
-        <div class="footer-label">Phone</div>
-        <p class="footer-val">+62 22 555 7890</p>
+        <div class="footer-label"></div>
+        <a href="https://wa.me/6281223815724" target="_blank" class="footer-val">+62 812-2381-5724 <span style="font-size:.7rem;color:rgba(255,255,255,.4)">(Deviani)</span></a>
       </div>
       <p class="footer-meta">Stay connected with us for updates.</p>
       <div class="footer-socials">
@@ -143,8 +147,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; {{ date('Y') }} Himaris Newsletter &middot; English Department, Politeknik Negeri Bandung</p>
-    <p>Built with &hearts; by HIMARIS Officer Team</p>
+    <p>&copy; {{ date('Y') }} Himaris Newsletter &middot; Aditya Ependi &middot; Deviani Putri Azzahra &middot; Dra. Esti Sugiharti, MA., Ph.D.</p>
+    <p>English Department, Politeknik Negeri Bandung</p>
   </div>
 </footer>
 

@@ -19,6 +19,7 @@ class Post extends Model
         'category',
         'status',
         'user_id',
+        'author_name',
         'published_at',
     ];
 

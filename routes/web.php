@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\JobOpportunityController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AboutNewsletterController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SubscriberController;
@@ -21,7 +22,7 @@ Route::get('/about/{tab?}', [AboutController::class, 'index'])
 // Newsletter (Posts)
 Route::get('/newsletter', [PostController::class, 'index'])->name('newsletter.index');
 Route::get('/newsletter/{slug}', [PostController::class, 'show'])->name('newsletter.show');
-Route::view('/about-newsletter', 'pages.about-newsletter')->name('about-newsletter');
+Route::get('/about-newsletter', [AboutNewsletterController::class, 'index'])->name('about-newsletter');
 
 // Student Resources (Events)
 Route::get('/student-resources', [EventController::class, 'index'])->name('student-resources.index');
