@@ -47,13 +47,11 @@ class StudentResourceForm
                         ->required()
                         ->searchable()
                         ->options([
-                            'notes'    => '📝 Notes & Materi',
-                            'tutorial' => '🎓 Tutorial',
-                            'template' => '📄 Template',
-                            'ebook'    => '📚 E-Book',
-                            'link'     => '🔗 Useful Link',
-                            'tool'     => '🛠️ Tool / Software',
-                            'other'    => '✨ Other',
+                            'events'      => '📅 Events',
+                            'seminar'     => '🎓 Seminar',
+                            'workshop'    => '🛠️ Workshop',
+                            'scholarship' => '💵 Scholarship',
+                            'competition' => '🏆 Competition',
                         ]),
 
                     Select::make('status')

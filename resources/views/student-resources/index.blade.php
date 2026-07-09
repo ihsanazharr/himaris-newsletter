@@ -46,11 +46,11 @@
                 <img src="{{ asset('storage/' . $res->thumbnail) }}" alt="{{ $res->title }}" class="res-card-img" style="width:100%;height:100%;object-fit:cover"/>
               @else
                 <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--gray-light)">
-                  {{ ['notes'=>'📝','tutorial'=>'🎓','template'=>'📄','ebook'=>'📚','link'=>'🔗','tool'=>'🛠️','other'=>'✨'][$res->category] ?? '✨' }}
+                  {{ ['events'=>'📅','seminar'=>'🎓','workshop'=>'🛠️','scholarship'=>'💵','competition'=>'🏆'][$res->category] ?? '✨' }}
                 </div>
               @endif
               <div class="res-card-badge badge-upcoming" style="position:absolute;top:12px;left:12px">
-                {{ ['notes'=>'Notes','tutorial'=>'Tutorial','template'=>'Template','ebook'=>'E-Book','link'=>'Link','tool'=>'Tool','other'=>'Resource'][$res->category] ?? 'Resource' }}
+                {{ ['events'=>'Event','seminar'=>'Seminar','workshop'=>'Workshop','scholarship'=>'Scholarship','competition'=>'Competition'][$res->category] ?? 'Resource' }}
               </div>
             </div>
             <div class="res-card-body" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between;flex-grow:1">
