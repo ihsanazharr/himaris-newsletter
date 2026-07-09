@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Galleries\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -31,7 +32,7 @@ class GalleryForm
                         ->label('Description')
                         ->rows(4)
                         ->placeholder('Briefly describe this photo...')
-                        ->helperText('This text will appear below the body image on the detail page.')
+                        ->helperText('This text will appear alongside the body images on the detail page.')
                         ->columnSpanFull(),
 
                     DatePicker::make('date')
@@ -79,38 +80,49 @@ class GalleryForm
 
                 ]),
 
-            Section::make('Body Image')
-                ->description('Displayed in the middle of the description on the detail page.')
+            Section::make('Body Images')
+                ->description('Add one or more images that will appear inside the detail page, distributed between paragraphs of your description.')
                 ->schema([
 
-                    FileUpload::make('body_image')
-                        ->label('Body / Detail Image')
-                        ->image()
-                        ->nullable()
-                        ->disk('public')
-                        ->directory('gallery/body')
-                        ->imageEditor()
-                        ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
-                        ->maxSize(4096)
-                        ->helperText('Optional. Shown in the middle of the description on the detail page. Max 4MB.')
-                        ->columnSpanFull(),
+                    Repeater::make('body_images')
+                        ->label('Body Images (Multiple Supported)')
+                        ->schema([
 
-                    TextInput::make('body_image_alt')
-                        ->label('Body Image Alt Text')
-                        ->maxLength(255)
-                        ->placeholder('Describe the image for accessibility')
-                        ->helperText('Recommended for accessibility and SEO.'),
+                            FileUpload::make('image')
+                                ->label('Image')
+                                ->image()
+                                ->disk('public')
+                                ->directory('gallery/body')
+                                ->imageEditor()
+                                ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
+                                ->maxSize(4096)
+                                ->helperText('Max 4MB per image.')
+                                ->columnSpanFull(),
 
-                    Textarea::make('body_image_caption')
-                        ->label('Body Image Caption')
-                        ->rows(2)
-                        ->maxLength(500)
-                        ->placeholder('Optional caption shown below the image'),
+                            TextInput::make('alt')
+                                ->label('Alt Text')
+                                ->maxLength(255)
+                                ->placeholder('Describe the image for accessibility')
+                                ->helperText('Recommended for accessibility and SEO.'),
 
-                    TextInput::make('body_image_copyright')
-                        ->label('Body Image Copyright / Credit')
-                        ->maxLength(255)
-                        ->placeholder('Example: Photo by Himaris Team')
+                            TextInput::make('copyright')
+                                ->label('Copyright / Credit')
+                                ->maxLength(255)
+                                ->placeholder('e.g. Photo by Himaris Team'),
+
+                            Textarea::make('caption')
+                                ->label('Caption')
+                                ->rows(2)
+                                ->maxLength(500)
+                                ->placeholder('Optional caption shown below the image')
+                                ->columnSpanFull(),
+
+                        ])
+                        ->columns(2)
+                        ->collapsible()
+                        ->collapsed()
+                        ->addActionLabel('+ Add Another Image')
+                        ->orderColumn(false)
                         ->columnSpanFull(),
 
                 ]),

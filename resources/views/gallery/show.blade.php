@@ -120,89 +120,121 @@
     @endif
   </div>
 
-  {{-- Description split around body image dynamically by paragraph --}}
+  {{-- Description split around body images dynamically by paragraph --}}
   @php
     $desc = $gallery->description ?? '';
     // Split by newlines (paragraphs)
     $paragraphs = array_values(array_filter(explode("\n", str_replace("\r", "", $desc)), function($p) {
         return trim($p) !== '';
     }));
-    
+
+    // Support new multi-image (body_images JSON) AND legacy single body_image
+    $bodyImages = [];
+    if (!empty($gallery->body_images) && is_array($gallery->body_images)) {
+        foreach ($gallery->body_images as $img) {
+            if (!empty($img['image'])) {
+                $bodyImages[] = $img;
+            }
+        }
+    } elseif ($gallery->body_image) {
+        // Legacy fallback: wrap old single image in array format
+        $bodyImages[] = [
+            'image'     => $gallery->body_image,
+            'alt'       => $gallery->body_image_alt ?? '',
+            'caption'   => $gallery->body_image_caption ?? '',
+            'copyright' => $gallery->body_image_copyright ?? '',
+        ];
+    }
+
     $totalParagraphs = count($paragraphs);
-    $middleIndex = $totalParagraphs > 1 ? (int) ($totalParagraphs / 2) : 0;
-    $imagePlaced = false;
+    $totalImages     = count($bodyImages);
+    $placedImages    = [];
   @endphp
 
   <div style="font-size:0.93rem;color:#444;line-height:1.85;padding:20px 0;border-top:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light)">
     @if($totalParagraphs > 0)
       @foreach($paragraphs as $index => $para)
         <p style="margin-bottom:18px">{!! nl2br(e($para)) !!}</p>
-        
-        {{-- Place body image in the middle (e.g. after the middle paragraph) --}}
-        @if($gallery->body_image && ($index + 1) === $middleIndex)
+
+        {{-- Distribute images evenly between paragraphs --}}
+        @if($totalImages > 0)
+          @for($i = 0; $i < $totalImages; $i++)
+            @if(!in_array($i, $placedImages))
+              @php
+                $targetParagraph = (int) (($i + 1) * $totalParagraphs / ($totalImages + 1));
+              @endphp
+              @if(($index + 1) === $targetParagraph)
+                @php
+                  $img = $bodyImages[$i];
+                  $placedImages[] = $i;
+                @endphp
+                <figure class="gal-body-figure">
+                  <img
+                    src="{{ asset('storage/' . $img['image']) }}"
+                    alt="{{ $img['alt'] ?: ($gallery->title . ' image ' . ($i + 1)) }}"
+                    class="gal-body-image"
+                  />
+                  @if(!empty($img['caption']) || !empty($img['copyright']))
+                    <figcaption class="gal-body-caption">
+                      @if(!empty($img['caption']))
+                        <span>{{ $img['caption'] }}</span>
+                      @endif
+                      @if(!empty($img['copyright']))
+                        <small>© {{ $img['copyright'] }}</small>
+                      @endif
+                    </figcaption>
+                  @endif
+                </figure>
+              @endif
+            @endif
+          @endfor
+        @endif
+      @endforeach
+
+      {{-- Fallback: render any images not yet placed (e.g. more images than paragraphs) --}}
+      @foreach($bodyImages as $i => $img)
+        @if(!in_array($i, $placedImages))
           <figure class="gal-body-figure">
             <img
-              src="{{ asset('storage/' . $gallery->body_image) }}"
-              alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+              src="{{ asset('storage/' . $img['image']) }}"
+              alt="{{ $img['alt'] ?: ($gallery->title . ' image ' . ($i + 1)) }}"
               class="gal-body-image"
             />
-            @if($gallery->body_image_caption || $gallery->body_image_copyright)
+            @if(!empty($img['caption']) || !empty($img['copyright']))
               <figcaption class="gal-body-caption">
-                @if($gallery->body_image_caption)
-                  <span>{{ $gallery->body_image_caption }}</span>
+                @if(!empty($img['caption']))
+                  <span>{{ $img['caption'] }}</span>
                 @endif
-                @if($gallery->body_image_copyright)
-                  <small>© {{ $gallery->body_image_copyright }}</small>
+                @if(!empty($img['copyright']))
+                  <small>© {{ $img['copyright'] }}</small>
                 @endif
               </figcaption>
             @endif
           </figure>
-          @php $imagePlaced = true; @endphp
         @endif
       @endforeach
-      
-      {{-- Fallback: Place at the end if not already placed (e.g. only 1 paragraph) --}}
-      @if($gallery->body_image && !$imagePlaced)
-        <figure class="gal-body-figure">
-          <img
-            src="{{ asset('storage/' . $gallery->body_image) }}"
-            alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
-            class="gal-body-image"
-          />
-          @if($gallery->body_image_caption || $gallery->body_image_copyright)
-            <figcaption class="gal-body-caption">
-              @if($gallery->body_image_caption)
-                <span>{{ $gallery->body_image_caption }}</span>
-              @endif
-              @if($gallery->body_image_copyright)
-                <small>© {{ $gallery->body_image_copyright }}</small>
-              @endif
-            </figcaption>
-          @endif
-        </figure>
-      @endif
-      
+
     @else
-      {{-- If no description, but image is uploaded, just show centered image --}}
-      @if($gallery->body_image)
+      {{-- No description: show all body images stacked centered --}}
+      @foreach($bodyImages as $i => $img)
         <figure class="gal-body-figure" style="margin:12px auto">
           <img
-            src="{{ asset('storage/' . $gallery->body_image) }}"
-            alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+            src="{{ asset('storage/' . $img['image']) }}"
+            alt="{{ $img['alt'] ?: ($gallery->title . ' image ' . ($i + 1)) }}"
             class="gal-body-image"
           />
-          @if($gallery->body_image_caption || $gallery->body_image_copyright)
+          @if(!empty($img['caption']) || !empty($img['copyright']))
             <figcaption class="gal-body-caption">
-              @if($gallery->body_image_caption)
-                <span>{{ $gallery->body_image_caption }}</span>
+              @if(!empty($img['caption']))
+                <span>{{ $img['caption'] }}</span>
               @endif
-              @if($gallery->body_image_copyright)
-                <small>© {{ $gallery->body_image_copyright }}</small>
+              @if(!empty($img['copyright']))
+                <small>© {{ $img['copyright'] }}</small>
               @endif
             </figcaption>
           @endif
         </figure>
-      @endif
+      @endforeach
     @endif
   </div>
 

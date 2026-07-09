@@ -17,6 +17,7 @@ class Gallery extends Model
         'body_image_alt',
         'body_image_caption',
         'body_image_copyright',
+        'body_images',
         'description',
         'date',
         'location',
@@ -28,7 +29,8 @@ class Gallery extends Model
     protected function casts(): array
     {
         return [
-            'date' => 'date',
+            'date'        => 'date',
+            'body_images' => 'array',
         ];
     }
 
