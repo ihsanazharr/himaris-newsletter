@@ -4,6 +4,7 @@
 @section('meta_description', 'Learn about Himaris Newsletter — the official student publication of the English Department, Politeknik Negeri Bandung.')
 
 @push('styles')
+@include('about._styles')
 <style>
 .abn-hero {
   background: var(--dark);
@@ -33,46 +34,7 @@
 }
 .abn-logo-box img { width: 90px; object-fit: contain; }
 
-.abn-tabs {
-  background: var(--dark);
-  border-bottom: 2px solid rgba(212,160,23,.25);
-  position: sticky;
-  top: var(--nav-h);
-  z-index: 10;
-}
-.abn-tabs-inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  gap: 4px;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  overflow-x: auto;
-  scrollbar-width: none;
-  white-space: nowrap;
-}
-.abn-tabs-inner::-webkit-scrollbar { display: none; }
-.abn-tab {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  color: rgba(255,255,255,.5);
-  text-decoration: none;
-  font-family: var(--font);
-  font-size: .8rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color .18s, border-color .18s;
-  cursor: pointer;
-}
-.abn-tab:hover { color: rgba(255,255,255,.9); border-color: transparent; transform: none; }
-.abn-tab.active { color: var(--gold); border-bottom-color: var(--gold); background: none; box-shadow: none; }
+
 
 .abn-section { padding: 72px 32px; }
 .abn-inner { max-width: 900px; margin: 0 auto; }
@@ -197,12 +159,12 @@
 {{-- Spacer below fixed navbar --}}
 <div style="height:var(--nav-h)"></div>
 
-<div class="abn-tabs">
-  <div class="abn-tabs-inner">
-    <a href="{{ route('about', 'himaris') }}" class="abn-tab">HIMARIS</a>
-    <a href="{{ route('about', 'esaa') }}" class="abn-tab">ESAA</a>
-    <a href="{{ route('about', 'english-dept') }}" class="abn-tab">English Department</a>
-    <a href="{{ route('about-newsletter') }}" class="abn-tab active">Himaris Newsletter</a>
+<div class="about-bar">
+  <div class="about-bar-inner">
+    <a href="{{ route('about', 'himaris') }}" class="tab-btn">HIMARIS</a>
+    <a href="{{ route('about', 'esaa') }}" class="tab-btn">ESAA</a>
+    <a href="{{ route('about', 'english-dept') }}" class="tab-btn">English Department</a>
+    <a href="{{ route('about-newsletter') }}" class="tab-btn active">Himaris Newsletter</a>
   </div>
 </div>
 
@@ -281,65 +243,7 @@
   </div>
 </div>
 
-{{-- SOCIAL MEDIA PUBLICATIONS --}}
-<div class="abn-section" style="background:var(--off-white)">
-  <div class="abn-inner">
-    <h2 class="abn-h2 reveal">Social Media Publications</h2>
-    <p class="abn-body reveal" style="margin-bottom:0">
-      Beyond the website, HIMARIS publishes content across social media platforms.
-      Here are some of our latest posts from Instagram:
-    </p>
-    <div class="socpub-grid">
-      @php
-        $socialPosts = [
-          [
-            'title' => 'Graduation Post',
-            'emoji' => '🎓',
-            'thumb' => 'https://www.instagram.com/reel/DNz5Xh10tZl/media/?size=l',
-            'text' => "Let's give a big applause to this year's graduates! After years of hard work, you have finally reached an important milestone.",
-            'url' => 'https://www.instagram.com/reel/DNz5Xh10tZl/',
-          ],
-          [
-            'title' => 'English for Learning #2',
-            'emoji' => '📚',
-            'thumb' => 'https://www.instagram.com/reel/DMhujAUJtDE/media/?size=l',
-            'text' => '<em>English for Learning #2</em> — 10 Destination-Related Words You Need to Know! Build your travel vocabulary.',
-            'url' => 'https://www.instagram.com/reel/DMhujAUJtDE/',
-          ],
-          [
-            'title' => 'Tour Jurusan 2025',
-            'emoji' => '🦁',
-            'thumb' => 'https://www.instagram.com/reel/DNNqsvfpmZf/media/?size=l',
-            'text' => '<em>TOUR JURUSAN 2025</em> — Say hello to the new fresh lions of HIMARIS! Freshmen just finished their academic major tour.',
-            'url' => 'https://www.instagram.com/reel/DNNqsvfpmZf/',
-          ],
-        ];
-      @endphp
-      @foreach($socialPosts as $post)
-        <div class="socpub-card reveal">
-          <div class="socpub-media">
-            <img src="{{ $post['thumb'] }}"
-                 alt="{{ $post['title'] }}"
-                 loading="lazy"
-                 onerror="this.remove();this.parentElement.classList.add('is-fallback');"/>
-            <div class="socpub-media-fallback">{{ $post['emoji'] }}</div>
-          </div>
-          <div class="socpub-body">
-            <p class="socpub-platform">📸 Instagram</p>
-            <p class="socpub-text">{!! $post['text'] !!}</p>
-            <a href="{{ $post['url'] }}" target="_blank" class="socpub-link">View on Instagram →</a>
-          </div>
-        </div>
-      @endforeach
-    </div>
-    <div style="text-align:center;margin-top:28px">
-      <a href="https://instagram.com/himaris.newsletter" target="_blank"
-         style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;background:var(--gold);color:var(--black);font-weight:700;font-size:.84rem;border-radius:var(--radius);border:2px solid var(--black);box-shadow:3px 3px 0 var(--black);text-decoration:none">
-        Follow @himaris.newsletter →
-      </a>
-    </div>
-  </div>
-</div>
+@include('partials.social-media-publications')
 
 {{-- OUR MOMENTS --}}
 <div class="abn-section" style="background:var(--off-white)">

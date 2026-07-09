@@ -13,8 +13,11 @@
 
 @section('content')
 
-{{-- TAB BAR — margin-top pushes it below fixed navbar --}}
-<div class="about-bar" style="margin-top:var(--nav-h)">
+{{-- Spacer so content starts below fixed navbar --}}
+<div style="height:var(--nav-h)"></div>
+
+{{-- TAB BAR (sits right below navbar) --}}
+<div class="about-bar">
   <div class="about-bar-inner">
     <button class="tab-btn {{ $tab === 'himaris' ? 'active' : '' }}" data-tab="himaris">HIMARIS</button>
     <button class="tab-btn {{ $tab === 'esaa' ? 'active' : '' }}" data-tab="esaa">ESAA</button>
@@ -37,6 +40,8 @@
 <div id="panel-english-dept" class="tab-panel {{ $tab === 'english-dept' ? 'active' : '' }}">
   @include('about._engdept')
 </div>
+
+@include('partials.social-media-publications')
 
 @endsection
 

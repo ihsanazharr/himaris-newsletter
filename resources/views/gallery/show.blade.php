@@ -29,23 +29,38 @@
   padding: 22px 0 20px; border-top: 1px solid var(--gray-light);
 }
 .gal-body-image {
-  width: min(100%, 720px); border-radius: var(--radius-lg);
-  box-shadow: 0 6px 28px rgba(0,0,0,0.12); margin: 4px 0 20px;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   display: block;
-  margin-inline: auto;
+  margin: 0 auto;
 }
-.gal-body-figure { margin: 4px 0 20px; }
-.gal-body-caption {
-  margin-top: 10px;
+.gal-body-figure {
+  margin: 28px auto;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  width: 100%;
+}
+.gal-body-caption {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   align-items: center;
   text-align: center;
   color: var(--gray);
-  font-size: 0.79rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 600px;
 }
-.gal-body-caption small { color: #999; font-size: 0.74rem; }
+.gal-body-caption span {
+  font-style: italic;
+  font-weight: 500;
+}
+.gal-body-caption small { color: #a0a0a0; font-size: 0.72rem; margin-top: 2px; }
 .gal-desc-bottom {
   font-size: 0.93rem; color: #444; line-height: 1.85;
   padding-bottom: 22px; border-bottom: 1px solid var(--gray-light);

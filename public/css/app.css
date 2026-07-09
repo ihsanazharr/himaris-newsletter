@@ -366,30 +366,47 @@ button { font-family: var(--font); cursor: pointer; }
 .post-body img {
   width: auto;
   max-width: 100%;
-  border-radius: var(--radius);
-  margin: 20px auto;
-  display: block;
-}
-.post-media-section { margin-top: 10px; display: grid; gap: 18px; }
-.post-body-figure {
-  margin: 0;
-  padding: 14px;
-  border: 1px solid var(--gray-light);
   border-radius: var(--radius-lg);
-  background: #fcfcfb;
+  margin: 28px auto;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-.post-body-caption {
-  margin-top: 10px;
+.post-media-section { margin-top: 24px; display: flex; flex-direction: column; gap: 28px; }
+.post-body-figure {
+  margin: 28px auto;
+  padding: 0;
+  border: none;
+  background: none;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  width: 100%;
+}
+.post-body-figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+.post-body-caption {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   text-align: center;
   align-items: center;
   color: var(--gray);
   font-size: 0.8rem;
-  line-height: 1.5;
+  line-height: 1.4;
+  max-width: 600px;
 }
-.post-body-caption small { color: #999; font-size: 0.73rem; }
+.post-body-caption span {
+  font-style: italic;
+  font-weight: 500;
+}
+.post-body-caption small { color: #a0a0a0; font-size: 0.72rem; margin-top: 2px; }
 .post-body blockquote { border-left: 3px solid var(--gold); padding: 12px 20px; margin: 20px 0; font-style: italic; color: #555; background: var(--gold-light); border-radius: 0 var(--radius) var(--radius) 0; }
 
 .post-sidebar { display: flex; flex-direction: column; gap: 22px; }
@@ -464,7 +481,7 @@ button { font-family: var(--font); cursor: pointer; }
 .btn-apply:hover { background: var(--gold-bright); transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
 
 /* ====== ABOUT TAB BAR ====== */
-.about-bar { background: var(--dark); padding-top: var(--nav-h); border-bottom: 3px solid var(--gold); }
+.about-bar { background: var(--dark); border-bottom: 3px solid var(--gold); }
 .about-bar-inner { max-width: 1160px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; }
 .tab-btn {
   padding: 18px 28px; background: none; border: none; border-bottom: 3px solid transparent;
