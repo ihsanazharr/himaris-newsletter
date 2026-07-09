@@ -41,7 +41,7 @@
   <div class="container">
     <div class="articles-grid">
       @forelse($paginatedItems as $item)
-        <div class="res-card reveal" style="display:flex;flex-direction:column;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1.5px solid var(--gray-light)">
+        <a href="{{ $item['url'] }}" class="res-card reveal" style="display:flex;flex-direction:column;background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1.5px solid var(--gray-light);text-decoration:none;color:inherit;">
           <div class="res-card-img-wrap" style="position:relative;height:180px;overflow:hidden">
             @if($item['thumbnail'])
               <img src="{{ asset('storage/' . $item['thumbnail']) }}" alt="{{ $item['title'] }}" class="res-card-img" style="width:100%;height:100%;object-fit:cover"/>
@@ -58,11 +58,7 @@
             <div>
               <span class="res-card-tag" style="font-size:0.68rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em">{{ $item['source'] }}</span>
               <h3 class="res-card-title" style="font-size:1.05rem;font-weight:700;color:var(--dark);margin-top:6px;line-height:1.4">
-                @if($item['type'] === 'event')
-                  <a href="{{ $item['url'] }}" style="color:inherit;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">{{ $item['title'] }}</a>
-                @else
-                  {{ $item['title'] }}
-                @endif
+                {{ $item['title'] }}
               </h3>
               @if($item['description'])
                 <p style="font-size:0.8rem;color:var(--gray);line-height:1.5;margin-top:8px">
@@ -71,22 +67,12 @@
               @endif
             </div>
             <div style="margin-top:20px">
-              @if($item['type'] === 'event')
-                <a href="{{ $item['url'] }}" class="btn-apply" style="font-size:0.75rem;padding:8px 12px;display:block;text-align:center;text-decoration:none">
-                  📅 View Event Details
-                </a>
-              @elseif($item['file_path'])
-                <a href="{{ asset('storage/' . $item['file_path']) }}" target="_blank" class="btn-apply" style="font-size:0.75rem;padding:8px 12px;display:block;text-align:center;text-decoration:none">
-                  📥 Download File
-                </a>
-              @elseif($item['external_url'])
-                <a href="{{ $item['external_url'] }}" target="_blank" class="btn-apply" style="font-size:0.75rem;padding:8px 12px;display:block;text-align:center;text-decoration:none">
-                  🔗 Open Link / Source
-                </a>
-              @endif
+              <span class="btn-apply" style="font-size:0.75rem;padding:8px 12px;display:block;text-align:center;text-decoration:none;pointer-events:none;">
+                🔍 View Details
+              </span>
             </div>
           </div>
-        </div>
+        </a>
       @empty
         <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray)">
           <div style="font-size:3rem;margin-bottom:12px">📚</div>

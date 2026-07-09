@@ -48,7 +48,7 @@ class EventController extends Controller
                 'description'  => $res->description,
                 'file_path'    => $res->file_path,
                 'external_url' => $res->external_url,
-                'url'          => $res->file_path ? asset('storage/' . $res->file_path) : ($res->external_url ?? '#'),
+                'url'          => route('student-resources.show', $res->slug),
             ]);
         }
 
@@ -79,20 +79,69 @@ class EventController extends Controller
 
     public function show(string $slug)
     {
+        // 1. Try to find in Event model first
         $event = Event::where('slug', $slug)
+            ->where('status', 'published')
+            ->first();
+
+        if ($event) {
+            $moreEvents = Event::where('status', 'published')
+                ->where('id', '!=', $event->id)
+                ->orderBy('start_date', 'asc')
+                ->limit(3)
+                ->get();
+
+            return view('student-resources.show', [
+                'type'        => 'event',
+                'title'       => $event->title,
+                'thumbnail'   => $event->thumbnail,
+                'description' => $event->description,
+                'date'        => $event->start_date,
+                'location'    => $event->location,
+                'source'      => $event->organizer,
+                'file_path'   => null,
+                'external_url'=> null,
+                'category'    => 'events',
+                'moreEvents'  => $moreEvents,
+            ]);
+        }
+
+        // 2. Try to find in StudentResource model
+        $res = \App\Models\StudentResource::where('slug', $slug)
             ->where('status', 'published')
             ->firstOrFail();
 
-        $moreEvents = Event::where('status', 'published')
-            ->where('id', '!=', $event->id)
-            ->where(function ($q) {
-                $q->where('start_date', '>=', now())
-                  ->orWhere('end_date', '>=', now());
-            })
-            ->orderBy('start_date', 'asc')
+        // Get other student resources for the sidebar/bottom
+        $moreResources = \App\Models\StudentResource::where('status', 'published')
+            ->where('id', '!=', $res->id)
+            ->orderBy('published_at', 'desc')
             ->limit(3)
             ->get();
 
-        return view('student-resources.show', compact('event', 'moreEvents'));
+        // Map to common structure for moreEvents loop on view
+        $moreEvents = collect();
+        foreach ($moreResources as $m) {
+            $moreEvents->push((object)[
+                'title'      => $m->title,
+                'slug'       => $m->slug,
+                'thumbnail'  => $m->thumbnail,
+                'start_date' => $m->published_at ?? $m->created_at,
+                'organizer'  => $m->source ?? 'Resource',
+            ]);
+        }
+
+        return view('student-resources.show', [
+            'type'        => 'resource',
+            'title'       => $res->title,
+            'thumbnail'   => $res->thumbnail,
+            'description' => $res->description,
+            'date'        => $res->published_at ?? $res->created_at,
+            'location'    => null,
+            'source'      => $res->source,
+            'file_path'   => $res->file_path,
+            'external_url'=> $res->external_url,
+            'category'    => $res->category,
+            'moreEvents'  => $moreEvents,
+        ]);
     }
 }
