@@ -108,7 +108,7 @@
   <div class="container">
     <h2 class="section-heading">
       <span class="icon">📖</span>
-      <span class="underline">What's On?</span>
+      <span class="underline">Featured Articles</span>
       <span class="icon">📖</span>
     </h2>
 
