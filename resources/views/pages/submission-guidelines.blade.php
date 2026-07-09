@@ -97,12 +97,14 @@
   <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:20px">Article Categories</h2>
   <div class="cats-grid">
     @foreach([
-      ['☕', 'Cafe Review',      'Share your experience visiting cafes near campus — perfect study spots, ambience, menu, and vibe.'],
-      ['👤', 'Alumni Profile',   'Interview a POLBAN English Dept alumni and share their inspiring career journey.'],
-      ['📰', 'News Report',      'Cover important campus events, faculty announcements, or student achievements.'],
-      ['🌱', 'Self-Improvement', 'Tips, habits, study strategies, and personal development content for students.'],
-      ['✨', 'Miscellaneous',    "Creative pieces, opinion articles, essays, or content that doesn't fit other categories."],
-      ['📅', 'Upcoming Event',   'Preview or announce an upcoming HIMARIS or campus event with all the key details.'],
+      ['📰', "What's New", 'Fresh updates from campus life, HIMARIS activities, announcements, and student achievements.'],
+      ['🌱', 'Self-improvement', 'Tips, habits, study strategies, and personal development content for students.'],
+      ['🎬', 'Entertainment', 'Fun, light, and engaging content around culture, trends, and student interests.'],
+      ['✨', 'Miscellaneous', "Creative pieces, opinion articles, essays, or content that doesn't fit other categories."],
+      ['👤', 'Inspirational alumni & current students profile', 'Stories and interviews highlighting inspiring academic and career journeys.'],
+      ['⭐', 'Review', 'Reviews of books, films, places, tools, or experiences relevant to students.'],
+      ['📅', 'Upcoming Event', 'Preview or announce an upcoming HIMARIS or campus event with all the key details.'],
+      ['🤝', 'Sponsored content', 'Collaborative or sponsored posts with transparent credit and relevant value for readers.'],
     ] as [$icon, $name, $desc])
     <div class="cat-item reveal">
       <div class="cat-item-icon">{{ $icon }}</div>
@@ -142,7 +144,7 @@
       <div class="cta-box-icon">📝</div>
       <div class="cta-box-tag">Article Submission</div>
       <h3>Got a Story to Tell?</h3>
-      <p>Submit your article — news, cafe reviews, alumni profiles, self-improvement, and more. Fill in the form and our editors will get back to you within 3–5 days.</p>
+      <p>Submit your article — from What's New to student profiles, reviews, and sponsored content. Fill in the form and our editors will get back to you within 3-5 days.</p>
       <a href="https://forms.gle/XkAYYbgfQCLkJznS8"
          target="_blank"
          rel="noopener noreferrer"

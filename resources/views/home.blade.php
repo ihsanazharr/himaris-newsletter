@@ -129,7 +129,7 @@
               @endif
             </div>
             <div class="article-card-body">
-              <span class="article-card-tag">{{ $post->category }}</span>
+              <span class="article-card-tag">{{ $post->category_label }}</span>
               <h3 class="article-card-title">{{ $post->title }}</h3>
               <p class="article-card-meta">
                 By {{ $post->author_name ?? $post->user?->name ?? 'HIMARIS' }}

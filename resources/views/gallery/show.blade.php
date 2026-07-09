@@ -29,10 +29,23 @@
   padding: 22px 0 20px; border-top: 1px solid var(--gray-light);
 }
 .gal-body-image {
-  width: 100%; border-radius: var(--radius-lg);
+  width: min(100%, 720px); border-radius: var(--radius-lg);
   box-shadow: 0 6px 28px rgba(0,0,0,0.12); margin: 4px 0 20px;
   display: block;
+  margin-inline: auto;
 }
+.gal-body-figure { margin: 4px 0 20px; }
+.gal-body-caption {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.79rem;
+}
+.gal-body-caption small { color: #999; font-size: 0.74rem; }
 .gal-desc-bottom {
   font-size: 0.93rem; color: #444; line-height: 1.85;
   padding-bottom: 22px; border-bottom: 1px solid var(--gray-light);
@@ -118,11 +131,23 @@
   @endif
 
   @if($gallery->body_image)
-    <img
-      src="{{ asset('storage/' . $gallery->body_image) }}"
-      alt="{{ $gallery->title }} — detail"
-      class="gal-body-image"
-    />
+    <figure class="gal-body-figure">
+      <img
+        src="{{ asset('storage/' . $gallery->body_image) }}"
+        alt="{{ $gallery->body_image_alt ?: ($gallery->title . ' detail image') }}"
+        class="gal-body-image"
+      />
+      @if($gallery->body_image_caption || $gallery->body_image_copyright)
+        <figcaption class="gal-body-caption">
+          @if($gallery->body_image_caption)
+            <span>{{ $gallery->body_image_caption }}</span>
+          @endif
+          @if($gallery->body_image_copyright)
+            <small>© {{ $gallery->body_image_copyright }}</small>
+          @endif
+        </figcaption>
+      @endif
+    </figure>
   @endif
 
   @if($rest)

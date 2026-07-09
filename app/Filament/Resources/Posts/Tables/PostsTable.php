@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Posts\Tables;
 
+use App\Models\Post;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
@@ -34,27 +35,15 @@ class PostsTable
                 TextColumn::make('category')
                     ->label('Category')
                     ->badge()
-                    ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'news'             => '📰 News Report',
-                        'scholarship'      => '🎓 Scholarship',
-                        'announcement'     => '📣 Announcement',
-                        'article'          => '📝 Article',
-                        'cafe-review'      => '☕ Cafe Review',
-                        'alumni'           => '👤 Alumni Profile',
-                        'self-improvement' => '🌱 Self-Improvement',
-                        'upcoming-event'   => '📅 Upcoming Event',
-                        'miscellaneous'    => '✨ Miscellaneous',
-                        default            => $state,
-                    })
+                    ->formatStateUsing(fn (string $state): string => Post::CATEGORY_LABELS[$state] ?? $state)
                     ->color(fn (string $state): string => match ($state) {
-                        'news'             => 'warning',
-                        'scholarship'      => 'success',
-                        'announcement'     => 'info',
-                        'article'          => 'gray',
-                        'cafe-review'      => 'primary',
-                        'alumni'           => 'danger',
+                        'whats-new'        => 'warning',
                         'self-improvement' => 'success',
+                        'entertainment'    => 'primary',
+                        'alumni-profile'   => 'info',
+                        'review'           => 'gray',
                         'upcoming-event'   => 'warning',
+                        'sponsored-content'=> 'danger',
                         'miscellaneous'    => 'gray',
                         default            => 'gray',
                     }),
@@ -93,17 +82,7 @@ class PostsTable
                     ]),
 
                 SelectFilter::make('category')
-                    ->options([
-                        'news'             => 'News Report',
-                        'scholarship'      => 'Scholarship',
-                        'announcement'     => 'Announcement',
-                        'article'          => 'Article',
-                        'cafe-review'      => 'Cafe Review',
-                        'alumni'           => 'Alumni Profile',
-                        'self-improvement' => 'Self-Improvement',
-                        'upcoming-event'   => 'Upcoming Event',
-                        'miscellaneous'    => 'Miscellaneous',
-                    ]),
+                    ->options(Post::categoryOptions()),
 
             ])
             ->actions([

@@ -363,7 +363,33 @@ button { font-family: var(--font); cursor: pointer; }
 .post-body { font-size: 0.93rem; color: #333; line-height: 1.85; }
 .post-body p { margin-bottom: 18px; }
 .post-body h2, .post-body h3 { margin: 28px 0 12px; font-weight: 700; color: var(--black); }
-.post-body img { border-radius: var(--radius); margin: 20px 0; }
+.post-body img {
+  width: auto;
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin: 20px auto;
+  display: block;
+}
+.post-media-section { margin-top: 10px; display: grid; gap: 18px; }
+.post-body-figure {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  background: #fcfcfb;
+}
+.post-body-caption {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  align-items: center;
+  color: var(--gray);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.post-body-caption small { color: #999; font-size: 0.73rem; }
 .post-body blockquote { border-left: 3px solid var(--gold); padding: 12px 20px; margin: 20px 0; font-style: italic; color: #555; background: var(--gold-light); border-radius: 0 var(--radius) var(--radius) 0; }
 
 .post-sidebar { display: flex; flex-direction: column; gap: 22px; }

@@ -95,6 +95,24 @@ class GalleryForm
                         ->helperText('Optional. Shown in the middle of the description on the detail page. Max 4MB.')
                         ->columnSpanFull(),
 
+                    TextInput::make('body_image_alt')
+                        ->label('Body Image Alt Text')
+                        ->maxLength(255)
+                        ->placeholder('Describe the image for accessibility')
+                        ->helperText('Recommended for accessibility and SEO.'),
+
+                    Textarea::make('body_image_caption')
+                        ->label('Body Image Caption')
+                        ->rows(2)
+                        ->maxLength(500)
+                        ->placeholder('Optional caption shown below the image'),
+
+                    TextInput::make('body_image_copyright')
+                        ->label('Body Image Copyright / Credit')
+                        ->maxLength(255)
+                        ->placeholder('Example: Photo by Himaris Team')
+                        ->columnSpanFull(),
+
                 ]),
 
         ]);

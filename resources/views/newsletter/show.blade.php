@@ -26,14 +26,39 @@
 <!-- POST CONTENT -->
 <div class="post-wrap">
   <div class="post-content">
-    <p class="post-tag">{{ $post->category }}</p>
+    <p class="post-tag">{{ $post->category_label }}</p>
     <h1 class="post-title">{{ $post->title }}</h1>
     <div class="post-body">
       {!! $post->content !!}
+
+      @if(!empty($post->content_images))
+        <div class="post-media-section">
+          @foreach($post->content_images as $image)
+            @if(!empty($image['image']))
+              <figure class="post-body-figure">
+                <img
+                  src="{{ asset('storage/' . $image['image']) }}"
+                  alt="{{ $image['alt'] ?? $post->title }}"
+                />
+                @if(!empty($image['caption']) || !empty($image['copyright']))
+                  <figcaption class="post-body-caption">
+                    @if(!empty($image['caption']))
+                      <span>{{ $image['caption'] }}</span>
+                    @endif
+                    @if(!empty($image['copyright']))
+                      <small>© {{ $image['copyright'] }}</small>
+                    @endif
+                  </figcaption>
+                @endif
+              </figure>
+            @endif
+          @endforeach
+        </div>
+      @endif
     </div>
 
     <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--gray-light)">
-      <span class="post-tag-chip">{{ $post->category }}</span>
+      <span class="post-tag-chip">{{ $post->category_label }}</span>
     </div>
   </div>
 
@@ -44,7 +69,7 @@
         <span class="post-meta-icon">🏷️</span>
         <div>
           <div class="post-meta-label">Category</div>
-          <p class="post-meta-val">{{ $post->category }}</p>
+          <p class="post-meta-val">{{ $post->category_label }}</p>
         </div>
       </div>
       <div class="post-meta-item">
@@ -85,7 +110,7 @@
             @endif
           </div>
           <div class="article-card-body">
-            <span class="article-card-tag">{{ $rel->category }}</span>
+            <span class="article-card-tag">{{ $rel->category_label }}</span>
             <h3 class="article-card-title">{{ $rel->title }}</h3>
             <p class="article-card-meta">{{ $rel->published_at?->format('d M Y') }}</p>
           </div>

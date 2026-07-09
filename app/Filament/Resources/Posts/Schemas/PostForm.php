@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
+use App\Models\Post;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -46,16 +48,7 @@ class PostForm
                         ->label('Category')
                         ->required()
                         ->searchable()
-                        ->options([
-                            'whats-new'        => "📰 What's New",
-                            'self-improvement' => '🌱 Self-Improvement',
-                            'entertainment'    => '🎬 Entertainment',
-                            'miscellaneous'    => '✨ Miscellaneous',
-                            'alumni-profile'   => '👤 Inspirational Alumni & Current Students Profile',
-                            'review'           => '⭐ Review',
-                            'upcoming-event'   => '📅 Upcoming Event',
-                            'sponsored-content'=> '🤝 Sponsored Content',
-                        ]),
+                        ->options(Post::categoryOptions()),
 
                     Select::make('status')
                         ->label('Publication Status')
@@ -104,6 +97,42 @@ class PostForm
                             'undo', 'redo',
                         ])
                         ->columnSpanFull(),
+
+                    Repeater::make('content_images')
+                        ->label('Body Image Section')
+                        ->helperText('Add optional images with alt text, caption, and copyright. These will be shown in the article body section with centered layout.')
+                        ->schema([
+                            FileUpload::make('image')
+                                ->label('Image')
+                                ->image()
+                                ->required()
+                                ->disk('public')
+                                ->directory('articles/body')
+                                ->imageEditor()
+                                ->maxSize(4096),
+
+                            TextInput::make('alt')
+                                ->label('Alt Text')
+                                ->required()
+                                ->maxLength(255)
+                                ->placeholder('Describe the image for accessibility'),
+
+                            Textarea::make('caption')
+                                ->label('Caption / Image Description')
+                                ->rows(2)
+                                ->maxLength(500)
+                                ->placeholder('Optional caption shown below the image'),
+
+                            TextInput::make('copyright')
+                                ->label('Copyright / Credit')
+                                ->maxLength(255)
+                                ->placeholder('Example: Photo by Himaris Team'),
+                        ])
+                        ->columns(2)
+                        ->columnSpanFull()
+                        ->collapsed()
+                        ->itemLabel(fn (array $state): ?string => $state['alt'] ?? null)
+                        ->reorderableWithButtons(),
 
                 ]),
 

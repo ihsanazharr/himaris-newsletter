@@ -93,7 +93,7 @@
             </div>
             <div class="feat-card-body">
               <div>
-                <div class="feat-card-tag">{{ $post->category }}</div>
+                <div class="feat-card-tag">{{ $post->category_label }}</div>
                 <div class="feat-card-title">{{ $post->title }}</div>
                 <div class="feat-card-meta">
                   By {{ $post->author_name ?? $post->user?->name ?? 'HIMARIS' }}
@@ -153,13 +153,13 @@
       @foreach([
         ''                  => 'All',
         'whats-new'         => "What's New",
-        'self-improvement'  => 'Self-Improvement',
+        'self-improvement'  => 'Self-improvement',
         'entertainment'     => 'Entertainment',
         'miscellaneous'     => 'Miscellaneous',
-        'alumni-profile'    => 'Alumni Profile',
+        'alumni-profile'    => 'Inspirational alumni & current students profile',
         'review'            => 'Review',
         'upcoming-event'    => 'Upcoming Event',
-        'sponsored-content' => 'Sponsored',
+        'sponsored-content' => 'Sponsored content',
       ] as $val => $label)
         <a href="{{ route('newsletter.index', array_merge(request()->only('search'), $val ? ['category' => $val] : [])) }}"
            style="display:inline-block;padding:6px 14px;font-size:.75rem;font-weight:600;border-radius:20px;border:1.5px solid {{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray-light)' }};background:{{ request()->get('category','') === $val ? 'var(--gold)' : 'var(--white)' }};color:{{ request()->get('category','') === $val ? 'var(--black)' : 'var(--gray)' }};text-decoration:none;transition:all .18s;">{{ $label }}</a>
@@ -181,7 +181,7 @@
             <div class="cat-foot">
               <div>
                 <h3>{{ Str::limit($post->title, 40) }}</h3>
-                <p>{{ $post->category }}</p>
+                <p>{{ $post->category_label }}</p>
               </div>
               <div class="cat-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">

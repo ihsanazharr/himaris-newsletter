@@ -48,7 +48,7 @@ class PostObserver
             'url'       => $url,
             'thumbnail' => $post->thumbnail,
             'date'      => $post->published_at?->format('d F Y') ?? now()->format('d F Y'),
-            'category'  => $post->category,
+            'category'  => $post->category_label,
         ];
 
         foreach ($subscribers as $subscriber) {
