@@ -67,7 +67,7 @@
 
 @if($photos->hasPages())
   <div style="max-width:1160px;margin:0 auto;padding:0 32px 48px">
-    {!! $photos->links() !!}
+    {!! $photos->links('partials.pagination') !!}
   </div>
 @endif
 

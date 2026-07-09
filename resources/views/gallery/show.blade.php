@@ -232,5 +232,6 @@
   </div>
 </div>
 @endif
+@include('partials.social-media-publications')
 
 @endsection

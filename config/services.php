@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'behold' => [
+        'feed_url' => env('BEHOLD_FEED_URL'),
+    ],
+
 ];

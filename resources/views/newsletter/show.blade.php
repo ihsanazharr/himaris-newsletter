@@ -168,4 +168,6 @@
   </a>
 </div>
 
+@include('partials.social-media-publications')
+
 @endsection

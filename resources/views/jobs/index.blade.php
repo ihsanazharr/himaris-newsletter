@@ -119,8 +119,7 @@
       @endforelse
     </div>
 
-    <div style="margin-top:32px">
-      {!! $jobs->appends(request()->query())->links() !!}
+      {!! $jobs->appends(request()->query())->links('partials.pagination') !!}
     </div>
   </div>
 

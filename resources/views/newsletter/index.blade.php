@@ -194,7 +194,7 @@
       </div>
 
       <div style="margin-top:40px">
-        {!! $posts->appends(request()->query())->links() !!}
+        {!! $posts->appends(request()->query())->links('partials.pagination') !!}
       </div>
     @else
       <div style="text-align:center;padding:60px 0;color:var(--gray)">

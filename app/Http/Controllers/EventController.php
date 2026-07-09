@@ -11,6 +11,15 @@ class EventController extends Controller
     {
         $filter = $request->get('filter', 'all');
 
+        if ($filter === 'files') {
+            $resources = \App\Models\StudentResource::where('status', 'published')
+                ->orderBy('published_at', 'desc')
+                ->orderBy('created_at', 'desc')
+                ->paginate(9);
+
+            return view('student-resources.index', compact('resources', 'filter'));
+        }
+
         $query = Event::where('status', 'published')->orderBy('start_date', 'asc');
 
         if ($filter === 'upcoming') {
