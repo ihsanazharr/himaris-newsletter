@@ -121,7 +121,6 @@
 
       {!! $jobs->appends(request()->query())->links('partials.pagination') !!}
     </div>
-  </div>
 
   <aside class="sidebar">
     <div class="sidebar-card">

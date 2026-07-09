@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Gallery — Himaris Newsletter')
-@section('meta_description', 'Browse photos from HIMARIS events, activities, and campus life at Politeknik Negeri Bandung.')
+@section('meta_description', 'Explore outstanding artworks, photography, and creative expressions from HIMARIS students.')
 
 @push('styles')
 <style>
@@ -10,28 +10,20 @@
 .gallery-header p { font-size: 0.88rem; color: rgba(255,255,255,0.55); font-style: italic; margin-top: 8px; }
 
 .gallery-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   max-width: 1160px; margin: 0 auto; padding: 48px 32px 72px;
 }
-.gallery-item {
-  position: relative; border-radius: var(--radius-lg); overflow: hidden;
-  border: 1.5px solid var(--gray-light); background: var(--white);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  cursor: pointer;
-}
-.gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); }
-.gallery-item img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover; background: var(--gray-light);
-  transition: transform var(--transition);
-}
-.gallery-item:hover img { transform: scale(1.05); }
-.gallery-item-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(17,17,17,0.78) 0%, transparent 100%);
-  padding: 18px 16px 14px; display: flex; flex-direction: column; gap: 2px;
-}
-.gallery-item-title { font-size: 0.88rem; font-weight: 600; color: var(--white); line-height: 1.3; }
-.gallery-item-meta { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+.cat-card { background: var(--white); border-radius: 8px; overflow: hidden; border: 1.5px solid var(--gray-light); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); text-decoration: none; display: block; }
+.cat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.09); border-color: var(--gold); }
+.cat-thumb { width: 100%; height: 180px; background: linear-gradient(135deg,#e8e0cc,#d4c9a8); display: flex; align-items: center; justify-content: center; font-size: 2.6rem; overflow: hidden; }
+.cat-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition); }
+.cat-card:hover .cat-thumb img { transform: scale(1.04); }
+.cat-foot { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+.cat-foot h3 { font-size: 0.93rem; font-weight: 600; color: var(--black); }
+.cat-foot p { font-size: 0.7rem; color: var(--gray); margin-top: 3px; }
+.cat-btn { width: 34px; height: 34px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background var(--transition), transform var(--transition); }
+.cat-card:hover .cat-btn { background: var(--gold-bright); transform: rotate(8deg); }
+.cat-btn svg { width: 15px; height: 15px; color: var(--black); }
 
 @media (max-width: 900px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; padding: 32px 18px 48px; } }
@@ -42,18 +34,36 @@
 
 <div class="gallery-header">
   <h1>📸 Gallery</h1>
-  <p>Moments captured from our events, activities, and campus life.</p>
+  <p>Explore outstanding artworks, photography, and creative expressions from HIMARIS students.</p>
 </div>
 
 <div class="gallery-grid">
   @forelse($photos as $photo)
-    <a href="{{ route('gallery.show', $photo->id) }}" class="gallery-item reveal">
-      <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}"/>
-      <div class="gallery-item-overlay">
-        <span class="gallery-item-title">{{ $photo->title }}</span>
-        @if($photo->date)
-          <span class="gallery-item-meta">{{ $photo->date->format('d M Y') }}@if($photo->location) — {{ $photo->location }}@endif</span>
+    <a href="{{ route('gallery.show', $photo->id) }}" class="cat-card reveal">
+      <div class="cat-thumb">
+        @if($photo->image)
+          <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}"/>
+        @else
+          📷
         @endif
+      </div>
+      <div class="cat-foot">
+        <div>
+          <h3>{{ Str::limit($photo->title, 40) }}</h3>
+          <p>
+            @if($photo->date)
+              {{ $photo->date->format('d M Y') }}
+            @endif
+            @if($photo->location)
+              {{ $photo->date ? ' • ' : '' }}{{ $photo->location }}
+            @endif
+          </p>
+        </div>
+        <div class="cat-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
       </div>
     </a>
   @empty
