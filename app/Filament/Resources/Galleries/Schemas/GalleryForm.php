@@ -112,17 +112,15 @@ class GalleryForm
 
                             Textarea::make('caption')
                                 ->label('Caption')
-                                ->rows(2)
-                                ->maxLength(500)
+                                ->rows(3)
                                 ->placeholder('Optional caption shown below the image')
                                 ->columnSpanFull(),
 
                         ])
                         ->columns(2)
                         ->collapsible()
-                        ->collapsed()
                         ->addActionLabel('+ Add Another Image')
-                        ->orderColumn(false)
+                        ->reorderable(false)
                         ->columnSpanFull(),
 
                 ]),
