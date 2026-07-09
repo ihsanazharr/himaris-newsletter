@@ -10,22 +10,33 @@
 
   // Fetch from Behold.so API if configured, cached for 3 hours to stay within free tier limits
   if ($beholdUrl) {
-      $socialPosts = Cache::remember('instagram_feed_posts_v2', now()->addHours(3), function() use ($beholdUrl) {
+      $socialPosts = Cache::remember('instagram_feed_posts_v3', now()->addHours(3), function() use ($beholdUrl) {
           try {
-              $response = Http::timeout(6)->get($beholdUrl);
+              $response = Http::timeout(10)->get($beholdUrl);
               if ($response->successful()) {
                   $data = $response->json();
-                  if (is_array($data)) {
-                      $mapped = [];
-                      foreach (array_slice($data, 0, 3) as $post) {
-                          $mapped[] = [
-                              'media_url' => $post['thumbnailUrl'] ?? $post['mediaUrl'] ?? '',
-                              'caption'   => $post['caption'] ?? '',
-                              'url'       => $post['permalink'] ?? 'https://instagram.com/himarispolban',
-                          ];
+
+                  // Behold API returns an object with a 'posts' key wrapping the actual posts array
+                  $posts = $data['posts'] ?? (is_array($data) && isset($data[0]) ? $data : []);
+
+                  $mapped = [];
+                  foreach (array_slice($posts, 0, 3) as $post) {
+                      // For carousel albums, use children[0].mediaUrl as the thumbnail
+                      $mediaUrl = $post['mediaUrl'] ?? '';
+                      if (empty($mediaUrl) && !empty($post['children'][0]['mediaUrl'])) {
+                          $mediaUrl = $post['children'][0]['mediaUrl'];
                       }
-                      return $mapped;
+
+                      // Prefer prunedCaption (shorter, clean) over full caption
+                      $caption = $post['prunedCaption'] ?? $post['caption'] ?? '';
+
+                      $mapped[] = [
+                          'media_url' => $mediaUrl,
+                          'caption'   => $caption,
+                          'url'       => $post['permalink'] ?? 'https://instagram.com/himarispolban',
+                      ];
                   }
+                  return $mapped;
               }
           } catch (\Exception $e) {
               Log::error('Instagram Behold Feed API error: ' . $e->getMessage());
