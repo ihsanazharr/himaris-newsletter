@@ -65,4 +65,13 @@
   .logo-symbol-grid{grid-template-columns:1fr;}
   .socmed-grid{grid-template-columns:1fr;}
 }
+@media(max-width:600px){
+  .about-hero-inner{padding:0 16px;}
+  .about-hero{padding:40px 0 52px;}
+  .hero-h1{font-size:clamp(1.4rem,6vw,2rem);}
+  .vismis-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .socmed-grid{grid-template-columns:1fr;}
+  .sec-heading{font-size:1.15rem;margin-bottom:24px;}
+}
 </style>

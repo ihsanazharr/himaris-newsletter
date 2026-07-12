@@ -137,6 +137,15 @@
   color: rgba(17,17,17,.28);
 }
 
+/* Newsletter sections two-column list */
+.newsletter-sections-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px;
+}
+/* Moments photo grid */
+.moments-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+
 @media(max-width:900px){
   .abn-tabs { padding-left: 20px; padding-right: 20px; }
   .abn-hero-inner { grid-template-columns: 1fr; }
@@ -144,12 +153,17 @@
   .abn-pillars { grid-template-columns: 1fr 1fr; }
   .abn-team-grid { grid-template-columns: 1fr 1fr; }
   .socpub-grid { grid-template-columns: 1fr 1fr; }
+  .newsletter-sections-grid { grid-template-columns: 1fr; }
+  .moments-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media(max-width:540px){
   .abn-section { padding: 48px 20px; }
   .abn-pillars { grid-template-columns: 1fr; }
   .abn-team-grid { grid-template-columns: 1fr 1fr; }
   .socpub-grid { grid-template-columns: 1fr; }
+  .newsletter-sections-grid { grid-template-columns: 1fr; }
+  .moments-grid { grid-template-columns: repeat(2, 1fr); }
+  .abn-cta { padding: 32px 20px; }
 }
 </style>
 @endpush
@@ -206,7 +220,7 @@
 
       <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--dark); margin: 36px 0 16px; border-bottom: 2px solid var(--gold); padding-bottom: 6px">Newsletter Sections</h3>
       
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px">
+      <div class="newsletter-sections-grid">
         <div>
           <p style="margin-bottom: 8px; font-weight: 700; color: var(--black)">Newsletter Main Sections:</p>
           <ul style="list-style-type: lower-alpha; padding-left: 20px; line-height: 1.75">
@@ -281,7 +295,7 @@
     </p>
 
     @if($moments->count())
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+      <div class="moments-grid">
         @foreach($moments as $moment)
           <div class="reveal"
                style="aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid transparent;transition:border-color .2s,transform .2s;cursor:default;"

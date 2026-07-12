@@ -60,6 +60,12 @@
   .submit-strip { padding: 16px 20px; }
   .submit-strip-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+@media(max-width:600px){
+  .featured-grid { grid-template-columns: 1fr; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .featured-section, .explore-section, .page-header-nl { padding-left: 16px; padding-right: 16px; }
+  .feat-card-body { flex-wrap: wrap; }
+}
 @media(max-width:500px){ .cat-grid { grid-template-columns: 1fr; } }
 </style>
 @endpush

@@ -666,7 +666,7 @@ a.footer-val:hover { color: var(--gold); }
   .dropdown-menu { position: static; border: none; box-shadow: none; opacity: 1; visibility: visible; transform: none; background: var(--gold-light); border-radius: 0; }
   .articles-grid { grid-template-columns: 1fr; }
   .cat-grid { grid-template-columns: 1fr 1fr; }
-  .main-wrap { grid-template-columns: 1fr; }
+  .main-wrap { grid-template-columns: 1fr; padding: 32px 20px 56px; }
   .sidebar { display: none; }
   .filter-search { display: none; }
   .page-header-inner { padding: 0 20px; }
@@ -676,24 +676,83 @@ a.footer-val:hover { color: var(--gold); }
   .hero-logo-box { display: none; }
   .submission-inner { grid-template-columns: 1fr; gap: 28px; }
   .mascot-box { display: none; }
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .logo-section-inner { grid-template-columns: 1fr; gap: 32px; }
   .logo-img-box { position: static; }
   .vismis-grid { grid-template-columns: 1fr; }
   .timeline::before { left: calc(20px + 18px); }
-  .more-grid { grid-template-columns: 1fr; }
+  .more-grid { grid-template-columns: 1fr 1fr; }
   .event-hero { height: 280px; }
   .job-detail-body { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-brand-row { grid-column: 1; }
+  .job-card { gap: 14px; padding: 18px; }
+  .section-heading { font-size: 1.25rem; }
+  .filter-bar-inner { padding: 0 20px; overflow-x: auto; flex-wrap: nowrap; }
+  .page-header { padding: 32px 0 24px; }
+  .page-header h1 { font-size: 1.5rem; }
 }
 @media (max-width: 600px) {
-  .container { padding: 0 18px; }
-  .section { padding: 48px 0; }
-  .tab-btn { padding: 14px 16px; font-size: 0.8rem; }
-  .about-bar-inner { padding: 0 18px; }
-  .footer-inner { padding: 0 18px 40px; }
-  .footer-bottom { padding: 18px 18px; }
+  .container { padding: 0 16px; }
+  .section { padding: 44px 0; }
+  .section-sm { padding: 32px 0; }
+  .tab-btn { padding: 14px 14px; font-size: 0.78rem; }
+  .about-bar-inner { padding: 0 16px; }
+  .footer-inner { padding: 0 16px 40px; }
+  .footer-bottom { padding: 16px 16px; }
   .cat-grid { grid-template-columns: 1fr; }
+  .more-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .section-heading { font-size: 1.15rem; margin-bottom: 24px; gap: 8px; }
+  .sec-heading { font-size: 1.15rem; margin-bottom: 24px; gap: 8px; }
+  .main-wrap { padding: 24px 16px 48px; }
+  .page-header { padding: 24px 0 18px; }
+  .page-header h1 { font-size: 1.35rem; }
+  .page-header p { font-size: 0.82rem; }
+  .job-card { flex-direction: column; gap: 10px; padding: 16px; }
+  .job-logo { width: 44px; height: 44px; }
+  .job-top { flex-direction: column; gap: 8px; }
+  .job-tags { flex-wrap: wrap; }
+  .filter-bar-inner { padding: 0 16px; overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; }
+  .filter-tab { padding: 12px 14px; font-size: 0.8rem; }
+  .hero-logo-wrap { width: 88px; height: 88px; }
+  .hero-title { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+  .pagination { gap: 5px; margin-top: 28px; }
+  .pagination a, .pagination span { width: 32px; height: 32px; font-size: 0.8rem; }
+  .article-card-title { font-size: 0.9rem; }
+  .article-card-body { padding: 12px 14px 16px; }
+  .sidebar-card { padding: 18px; }
+  .event-hero { height: 220px; }
+  .event-hero-content { padding: 20px 16px; }
+  .event-hero-title { font-size: 1.2rem; }
+  .event-body-card { padding: 20px 16px; }
+  .job-detail-inner { padding: 0 16px; }
+  .job-detail-title { font-size: 1.3rem; }
+  .job-detail-body { padding: 24px 16px 48px; }
+  .btn-apply { padding: 10px 20px; font-size: 0.84rem; }
+  .timeline::before { left: calc(16px + 18px); }
+  .orn-divider { padding: 32px 16px; }
+  .about-hero-inner { padding: 0 16px; }
+  .about-hero { padding: 40px 0 52px; }
+  .submission-inner { padding: 48px 16px; }
+  .sub-h2 { font-size: 1.25rem; }
+  .logo-section-inner { padding: 0 16px; }
+  .logo-section { padding: 48px 0; }
+  .history-wrap { padding: 48px 0; }
+  .timeline { padding: 0 16px; }
+  .footer-sub-form { gap: 8px; }
+}
+
+/* ====== VERY SMALL SCREENS (≤ 400px) ====== */
+@media (max-width: 400px) {
+  .container { padding: 0 12px; }
+  .section { padding: 36px 0; }
+  .section-heading { font-size: 1.05rem; }
+  .job-card { padding: 14px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .tab-btn { padding: 10px 12px; font-size: 0.74rem; }
+  .hero-title { font-size: 1.4rem; }
+  .hero-sub { font-size: 0.85rem; }
 }

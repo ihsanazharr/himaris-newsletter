@@ -1,4 +1,37 @@
 {{-- SOCIAL MEDIA PUBLICATIONS — @himarispolban --}}
+@push('styles')
+<style>
+.smp-section { padding: 64px 0; background: var(--off-white); }
+.smp-container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.smp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.smp-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-light);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.smp-card:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
+.smp-card-body { padding: 16px 18px 18px; }
+.smp-follow-wrap { text-align: center; margin-top: 32px; }
+
+@media (max-width: 900px) {
+  .smp-section { padding: 48px 0; }
+  .smp-container { padding: 0 20px; }
+  .smp-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (max-width: 580px) {
+  .smp-section { padding: 40px 0; }
+  .smp-container { padding: 0 16px; }
+  .smp-grid { grid-template-columns: 1fr; gap: 14px; }
+}
+</style>
+@endpush
 @php
   use Illuminate\Support\Facades\Cache;
   use Illuminate\Support\Facades\Http;
@@ -46,8 +79,8 @@
   }
 @endphp
 
-<section style="padding:64px 0;background:var(--off-white)">
-  <div style="max-width:1160px;margin:0 auto;padding:0 32px">
+<section class="smp-section">
+  <div class="smp-container">
 
     {{-- Heading --}}
     <h2 style="display:flex;align-items:center;justify-content:center;gap:12px;font-size:1.4rem;font-weight:700;margin-bottom:12px;color:var(--dark);text-align:center">
@@ -60,14 +93,12 @@
       on Instagram
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start">
+    <div class="smp-grid">
 
       @if(!empty($socialPosts))
         {{-- Real-Time Cards from Behold.so --}}
         @foreach($socialPosts as $post)
-          <div class="reveal" style="background:var(--white);border:1.5px solid var(--gray-light);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s"
-               onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.09)'"
-               onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow=''">
+          <div class="reveal smp-card">
             <div style="width:100%;aspect-ratio:1;overflow:hidden;background:#fafafa;border-bottom:1px solid var(--gray-light)">
               @if(!empty($post['media_url']))
                 <img src="{{ $post['media_url'] }}" alt="Instagram post" style="width:100%;height:100%;object-fit:cover;display:block"/>
@@ -75,7 +106,7 @@
                 <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem">📸</div>
               @endif
             </div>
-            <div style="padding:16px 18px 18px">
+            <div class="smp-card-body">
               <p style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📸 @himarispolban</p>
               <p style="font-size:.82rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px">
                 {{ Str::limit($post['caption'], 150) }}
@@ -90,16 +121,14 @@
       @else
         {{-- Fallback Cards with Iframes (if Behold API not set or failed) --}}
         {{-- Fallback 1 --}}
-        <div class="reveal" style="background:var(--white);border:1.5px solid var(--gray-light);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s"
-             onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.09)'"
-             onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow=''">
+        <div class="reveal smp-card">
           <iframe
             src="https://www.instagram.com/reel/DNz5Xh10tZl/embed/"
             width="100%" height="380" frameborder="0" scrolling="no"
             allowtransparency="true" allowfullscreen="true" loading="lazy"
             style="display:block;border:none;background:#fafafa">
           </iframe>
-          <div style="padding:16px 18px 18px">
+          <div class="smp-card-body">
             <p style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📸 @himarispolban</p>
             <p style="font-size:.82rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px">
               🎓 Let's give a big applause to this year's graduates! After years of hard work, you have finally reached an important milestone. Your journey in Polban is now coming to a close — but when one journey ends, another one begins.
@@ -112,16 +141,14 @@
         </div>
 
         {{-- Fallback 2 --}}
-        <div class="reveal" style="background:var(--white);border:1.5px solid var(--gray-light);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s"
-             onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.09)'"
-             onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow=''">
+        <div class="reveal smp-card">
           <iframe
             src="https://www.instagram.com/reel/DMhujAUJtDE/embed/"
             width="100%" height="380" frameborder="0" scrolling="no"
             allowtransparency="true" allowfullscreen="true" loading="lazy"
             style="display:block;border:none;background:#fafafa">
           </iframe>
-          <div style="padding:16px 18px 18px">
+          <div class="smp-card-body">
             <p style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📸 @himarispolban</p>
             <p style="font-size:.82rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px">
               📚 <em>English for Learning #2</em> — 10 Destination-Related Words You Need to Know! Make a travel itinerary and use these words when you have the chance.
@@ -134,16 +161,14 @@
         </div>
 
         {{-- Fallback 3 --}}
-        <div class="reveal" style="background:var(--white);border:1.5px solid var(--gray-light);border-radius:14px;overflow:hidden;transition:border-color .2s,box-shadow .2s"
-             onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.09)'"
-             onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow=''">
+        <div class="reveal smp-card">
           <iframe
             src="https://www.instagram.com/reel/DNNqsvfpmZf/embed/"
             width="100%" height="380" frameborder="0" scrolling="no"
             allowtransparency="true" allowfullscreen="true" loading="lazy"
             style="display:block;border:none;background:#fafafa">
           </iframe>
-          <div style="padding:16px 18px 18px">
+          <div class="smp-card-body">
             <p style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📸 @himarispolban</p>
             <p style="font-size:.82rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px">
               🦁 <em>TOUR JURUSAN 2025</em> — Say hello to the new fresh lions of Himaris! Freshmen just finished their academic major tour to learn more about college life in Polban.
