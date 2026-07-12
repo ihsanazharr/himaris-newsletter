@@ -161,7 +161,7 @@
 
 <div class="about-bar">
   <div class="about-bar-inner">
-    <a href="{{ route('about', 'himaris') }}" class="tab-btn">HIMARIS</a>
+    <a href="{{ route('about', 'himaris') }}" class="tab-btn">Himaris</a>
     <a href="{{ route('about', 'esaa') }}" class="tab-btn">ESAA</a>
     <a href="{{ route('about', 'english-dept') }}" class="tab-btn">English Department</a>
     <a href="{{ route('about-newsletter') }}" class="tab-btn active">Himaris Newsletter</a>
@@ -177,7 +177,7 @@
       <p class="abn-hero-desc">
         The official publication platform of the English Department Student Association
         at Politeknik Negeri Bandung — delivering news, stories, and opportunities
-        to the entire HIMARIS community.
+        to the entire Himaris community.
       </p>
     </div>
     <div class="abn-logo-box">
@@ -186,7 +186,7 @@
   </div>
 </div>
 
-{{-- WHAT IS HIMARIS NEWSLETTER --}}
+{{-- WHAT IS Himaris NEWSLETTER --}}
 <div class="abn-section" style="background:var(--off-white)">
   <div class="abn-inner reveal">
     <h2 class="abn-h2">What Is Himaris Newsletter?</h2>
@@ -266,7 +266,7 @@
       <div class="abn-pillar reveal">
         <div class="abn-pillar-icon">📷</div>
         <p class="abn-pillar-title">Events &amp; Moments</p>
-        <p class="abn-pillar-desc">Photo coverage, event recaps, and visual stories from HIMARIS programmes and activities.</p>
+        <p class="abn-pillar-desc">Photo coverage, event recaps, and visual stories from Himaris programmes and activities.</p>
       </div>
     </div>
   </div>
@@ -277,7 +277,7 @@
   <div class="abn-inner">
     <h2 class="abn-h2 reveal">&#128247; Our Moments</h2>
     <p class="abn-body reveal" style="margin-bottom:32px;text-align:center">
-      A collection of photos capturing the spirit, activities, and memories of HIMARIS.
+      A collection of photos capturing the spirit, activities, and memories of Himaris.
     </p>
 
     @if($moments->count())

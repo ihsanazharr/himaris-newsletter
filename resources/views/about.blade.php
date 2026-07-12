@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About Us — Himaris Newsletter')
-@section('meta_description', 'Learn about HIMARIS, ESAA, and the English Department at Politeknik Negeri Bandung.')
+@section('meta_description', 'Learn about Himaris, ESAA, and the English Department at Politeknik Negeri Bandung.')
 
 @push('styles')
 @include('about._styles')
@@ -19,7 +19,7 @@
 {{-- TAB BAR (sits right below navbar) --}}
 <div class="about-bar">
   <div class="about-bar-inner">
-    <button class="tab-btn {{ $tab === 'himaris' ? 'active' : '' }}" data-tab="himaris">HIMARIS</button>
+    <button class="tab-btn {{ $tab === 'himaris' ? 'active' : '' }}" data-tab="himaris">Himaris</button>
     <button class="tab-btn {{ $tab === 'esaa' ? 'active' : '' }}" data-tab="esaa">ESAA</button>
     <button class="tab-btn {{ $tab === 'english-dept' ? 'active' : '' }}" data-tab="english-dept">English Department</button>
     <a href="{{ route('about-newsletter') }}"

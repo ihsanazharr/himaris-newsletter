@@ -117,7 +117,7 @@
       <div class="method-title">QRIS — All E-Wallets &amp; Banking Apps</div>
       <div class="method-desc">Scan the QR code using GoPay, OVO, Dana, ShopeePay, BCA Mobile, BSI Mobile, and more.</div>
       <div class="qris-img-wrap">
-        {{-- Ganti dengan: <img src="{{ asset('images/qris.png') }}" alt="QRIS HIMARIS"/> --}}
+        {{-- Ganti dengan: <img src="{{ asset('images/qris.png') }}" alt="QRIS Himaris"/> --}}
         <div class="qris-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:52px;height:52px;opacity:.3">
             <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/>
@@ -128,14 +128,14 @@
           <span>Your QRIS code will<br>appear here</span>
         </div>
       </div>
-      <p class="qris-name">HIMARIS — English Dept POLBAN</p>
+      <p class="qris-name">Himaris — English Dept POLBAN</p>
       <p class="qris-via">Scan via any QRIS-supported app</p>
     </div>
 
     <div class="bank-card reveal">
       <div class="method-label">Bank Transfer</div>
       <div class="method-title">Direct Bank Transfer</div>
-      <div class="method-desc">Transfer to any of the accounts below. Include your name and "HIMARIS" in the transfer notes.</div>
+      <div class="method-desc">Transfer to any of the accounts below. Include your name and "Himaris" in the transfer notes.</div>
       <div class="bank-list">
         <div class="bank-item">
           <div class="bank-logo">BCA</div>

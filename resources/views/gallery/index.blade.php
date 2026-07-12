@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Gallery — Himaris Newsletter')
-@section('meta_description', 'Explore outstanding artworks, photography, and creative expressions from HIMARIS students.')
+@section('meta_description', 'Explore outstanding artworks, photography, and creative expressions from Himaris students.')
 
 @push('styles')
 <style>
@@ -34,7 +34,7 @@
 
 <div class="gallery-header">
   <h1>📸 Gallery</h1>
-  <p>Explore outstanding artworks, photography, and creative expressions from HIMARIS students.</p>
+  <p>Explore outstanding artworks, photography, and creative expressions from Himaris students.</p>
 </div>
 
 <div class="gallery-grid">

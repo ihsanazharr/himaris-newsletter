@@ -146,7 +146,7 @@
           <div style="padding:16px 18px 18px">
             <p style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📸 @himarispolban</p>
             <p style="font-size:.82rem;color:#3a3a3a;line-height:1.65;margin-bottom:12px">
-              🦁 <em>TOUR JURUSAN 2025</em> — Say hello to the new fresh lions of HIMARIS! Freshmen just finished their academic major tour to learn more about college life in Polban.
+              🦁 <em>TOUR JURUSAN 2025</em> — Say hello to the new fresh lions of Himaris! Freshmen just finished their academic major tour to learn more about college life in Polban.
             </p>
             <a href="https://www.instagram.com/reel/DNNqsvfpmZf/" target="_blank"
                style="font-size:.73rem;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:4px">

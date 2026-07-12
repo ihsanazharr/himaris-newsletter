@@ -36,7 +36,7 @@
         </svg>
       </a>
       <div class="dropdown-menu">
-        <a href="{{ route('about', 'himaris') }}">HIMARIS</a>
+        <a href="{{ route('about', 'himaris') }}">Himaris</a>
         <a href="{{ route('about', 'esaa') }}">ESAA</a>
         <a href="{{ route('about', 'english-dept') }}">English Department</a>
         <a href="{{ route('about-newsletter') }}">Himaris Newsletter</a>

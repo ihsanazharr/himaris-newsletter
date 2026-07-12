@@ -96,7 +96,7 @@
                 <div class="feat-card-tag">{{ $post->category_label }}</div>
                 <div class="feat-card-title">{{ $post->title }}</div>
                 <div class="feat-card-meta">
-                  By {{ $post->author_name ?? $post->user?->name ?? 'HIMARIS' }}
+                  By {{ $post->author_name ?? $post->user?->name ?? 'Himaris' }}
                   &mdash;
                   {{ $post->published_at?->format('d M Y') ?? $post->created_at->format('d M Y') }}
                 </div>
@@ -119,7 +119,7 @@
   <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
     <p style="font-size:.84rem;color:rgba(255,255,255,.6);">
       <strong style="color:var(--white);font-weight:600;">Want to write for us?</strong>
-      Share your story or campus experience with the HIMARIS community.
+      Share your story or campus experience with the Himaris community.
     </p>
     <a href="{{ route('submission-guidelines') }}"
        style="display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--gold);color:var(--black);font-weight:700;font-size:.8rem;border-radius:var(--radius);border:1.5px solid var(--gold);text-decoration:none;white-space:nowrap;transition:all .2s;">

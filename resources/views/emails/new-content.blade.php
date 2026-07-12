@@ -25,7 +25,7 @@
         <tr>
           <td align="center" style="padding: 28px 32px 20px; background:#ffffff; border-bottom: 1px solid #f0f0f0;">
             <img src="{{ config('app.url') }}/images/logohimaris.png"
-                 alt="HIMARIS POLBAN"
+                 alt="Himaris POLBAN"
                  width="90" height="90"
                  style="object-fit:contain; margin: 0 auto;"/>
           </td>
