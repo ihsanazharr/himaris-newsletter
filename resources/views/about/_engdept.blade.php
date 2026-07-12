@@ -15,7 +15,7 @@
     <h2 class="sec-heading"><span class="underline">About the English Department</span></h2>
     <div style="max-width:800px;margin:0 auto;font-size:.93rem;color:#3a3a3a;line-height:1.9">
       <p style="margin-bottom:16px">
-        The <strong>English Department at Politeknik Negeri Bandung (Polban)</strong> is committed to preparing students for professional careers by combining strong English communication skills with practical knowledge. As a vocational higher education department, it focuses on applied learning, allowing students to develop the knowledge and skills needed to succeed in today's workplace.
+        The <strong>English Department at Politeknik Negeri Bandung (Polban)</strong> is committed to prepare students for professional careers by combining strong English communication skills with practical knowledge. As a vocational higher education department, it focuses on applied learning, allowing students to develop the knowledge and skills needed to success in today's workplace.
       </p>
       <p style="margin-bottom:16px">
         Throughout their studies, students improve their English skills while gaining practical experience in translation, professional writing, business communication, public speaking, digital content creation, and intercultural communication. The learning activities include classroom discussions, presentations, projects, and other hands-on experiences that help students apply their knowledge in real-life situations. This approach also encourages students to develop critical thinking, creativity, teamwork, and problem-solving skills.
@@ -26,19 +26,19 @@
       <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;padding:0">
         <li style="display:flex;gap:12px;align-items:flex-start">
           <span style="background:var(--gold);color:var(--black);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">D-3</span>
-          <span><strong>English Language</strong> — focuses on practical English communication, translation, and professional writing. Prepares students for careers in business correspondence, translation, tourism, and public relations.</span>
+          <span><strong>English Language</strong>, a three-year program, which focuses on practical English communication, translation, and professional writing, preparing students for careers in business correspondence, translation, tourism, and public relations.</span>
         </li>
         <li style="display:flex;gap:12px;align-items:flex-start">
           <span style="background:var(--dark);color:var(--white);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">D-4</span>
-          <span><strong>English for Business and Professional Communication</strong> — focuses on digital media communication and advanced translation. Prepares students for careers in business communication, digital content writing, audiovisual translation, and copywriting.</span>
+          <span><strong>English for Business and Professional Communication</strong>, a four-year program, which focuses on digital media communication and advanced translation, preparing students for careers in business communication, digital content writing, audiovisual translation, and copywriting.</span>
         </li>
       </ul>
 
       <p style="margin-top:20px;margin-bottom:16px">
-        Learning is supported by experienced lecturers and an industry-oriented curriculum that keeps students connected with current workplace needs. Students are also encouraged to take part in internships, workshops, academic competitions, and community service activities. These opportunities help them strengthen both their technical abilities and soft skills, preparing them for their future careers.
+        Learning is supported by experienced lecturers and industry-oriented curriculum that keep students connected with current workplace needs. Students are also encouraged to take part in internships, workshops, academic competitions, and community service activities. These opportunities help them strengthen both their technical abilities and soft skills, preparing them for their future career.
       </p>
       <p style="margin-bottom:16px">
-        Beyond academics, students can actively participate in campus organizations. One of the most important is the <strong>English Student Association (HIMARIS)</strong>. Through HIMARIS, students can develop leadership, communication, teamwork, and organizational skills while planning and participating in various academic, social, and creative events.
+        Beyond academics, students can actively participate in campus organizations and activities. One of the most important student organizations is the <strong>English Student Association (Himaris)</strong>. Through Himaris, students can develop leadership, communication, teamwork, and organizational skills while planning and participating in various academic, social, and creative events. These experiences help students grow both personally and professionally.
       </p>
       <p style="margin-bottom:16px">
         With a supportive learning environment and a strong emphasis on practical education, the English Department at Polban prepares graduates to become confident, adaptable, and skilled professionals. Graduates can work in fields such as business, media, education, translation, tourism, public relations, and digital communication.

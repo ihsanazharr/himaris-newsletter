@@ -9,28 +9,111 @@
 .sub-header-inner{max-width:1160px;margin:0 auto;}
 .sub-header h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--black);}
 .sub-header p{font-size:.92rem;color:rgba(0,0,0,.62);margin-top:8px;font-style:italic;}
-.sub-main{max-width:1160px;margin:0 auto;padding:56px 32px 80px;}
-.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:52px;}
-.spec-card{background:var(--white);border:1.5px solid var(--gray-light);border-radius:var(--radius-lg);padding:22px 20px;text-align:center;transition:border-color var(--transition),transform var(--transition);}
-.spec-card:hover{border-color:var(--gold);transform:translateY(-2px);}
-.spec-icon{font-size:1.8rem;margin-bottom:10px;}
-.spec-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:5px;}
-.spec-value{font-size:1.05rem;font-weight:700;color:var(--dark);}
-.spec-note{font-size:.72rem;color:var(--gray);margin-top:3px;}
-.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:52px;}
-.cat-item{background:var(--white);border:1.5px solid var(--gray-light);border-radius:10px;padding:18px 20px;display:flex;align-items:flex-start;gap:12px;transition:border-color var(--transition);}
-.cat-item:hover{border-color:var(--gold);}
-.cat-item-icon{font-size:1.4rem;flex-shrink:0;}
-.cat-item-name{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:3px;}
-.cat-item-desc{font-size:.76rem;color:var(--gray);line-height:1.55;}
-.process-list{display:flex;flex-direction:column;gap:0;position:relative;margin-bottom:52px;}
-.process-list::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--gray-light);}
-.process-step{display:flex;gap:20px;padding-bottom:28px;}
-.step-dot{width:40px;height:40px;border-radius:50%;background:var(--gold);border:3px solid var(--white);box-shadow:0 0 0 2px var(--gold);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:var(--black);flex-shrink:0;z-index:1;}
-.step-title{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
-.step-desc{font-size:.84rem;color:var(--gray);line-height:1.6;}
 
-/* CTA Cards — dua kartu berdampingan */
+.sub-main{max-width:960px;margin:0 auto;padding:56px 32px 80px;}
+
+.intro-box {
+  background: var(--off-white);
+  border-left: 4px solid var(--gold);
+  padding: 24px;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  font-size: .95rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 48px;
+}
+
+.guidelines-section {
+  margin-bottom: 48px;
+}
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gray-light);
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.guide-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.guide-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--gray-light);
+  padding-bottom: 12px;
+}
+.guide-card-icon {
+  font-size: 1.8rem;
+}
+.guide-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.guide-item {
+  font-size: .88rem;
+  line-height: 1.65;
+  color: #444;
+}
+.guide-item strong {
+  color: var(--black);
+  display: block;
+  font-size: .9rem;
+  margin-bottom: 3px;
+}
+.guide-item ul {
+  padding-left: 16px;
+  margin-top: 6px;
+  list-style-type: disc;
+}
+.guide-item li {
+  margin-bottom: 4px;
+}
+
+.rules-box {
+  background: var(--white);
+  border: 1.5px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 52px;
+}
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 20px;
+  margin: 0;
+}
+.rules-list li {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* CTA Cards */
 .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:0;}
 .cta-box{border-radius:var(--radius-lg);padding:36px 32px;text-align:center;}
 .cta-box.dark{background:var(--dark);}
@@ -54,13 +137,9 @@
 .btn-gform svg{width:16px;height:16px;flex-shrink:0;}
 
 @media(max-width:900px){
-  .spec-grid{grid-template-columns:1fr 1fr;}
-  .cats-grid{grid-template-columns:1fr 1fr;}
+  .guidelines-grid{grid-template-columns:1fr;}
   .sub-header,.sub-main{padding-left:20px;padding-right:20px;}
   .cta-grid{grid-template-columns:1fr;}
-}
-@media(max-width:540px){
-  .spec-grid,.cats-grid{grid-template-columns:1fr;}
 }
 </style>
 @endpush
@@ -76,67 +155,143 @@
 
 <div class="sub-main">
 
-  {{-- SPESIFIKASI --}}
-  <div class="spec-grid">
-    @foreach([
-      ['📝', 'Word Count', '600 – 1,500', 'Per article'],
-      ['📄', 'Format', 'Google Form', 'Link tersedia di bawah'],
-      ['🖼️', 'Images', 'Min. 1 image', 'Min. 800×600px'],
-      ['⏱️', 'Review Time', '3 – 5 Days', 'Weekdays only'],
-    ] as [$icon, $label, $value, $note])
-    <div class="spec-card reveal">
-      <div class="spec-icon">{{ $icon }}</div>
-      <div class="spec-label">{{ $label }}</div>
-      <div class="spec-value">{{ $value }}</div>
-      <div class="spec-note">{{ $note }}</div>
-    </div>
-    @endforeach
+  {{-- INTRO --}}
+  <div class="intro-box reveal">
+    <p>
+      Contributors are welcome to submit their articles (e.g. review articles, opinion articles, and news reports) and artworks (e.g. photography, drawing, painting, and digital art) to be published in the newsletter main sections. Before submitting, contributors are encouraged to read all the requirements to ensure that their article fits the theme and content of the selected section. All submissions will be reviewed by the editorial team before being published on the website.
+    </p>
   </div>
 
-  {{-- KATEGORI --}}
-  <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:20px">Article Categories</h2>
-  <div class="cats-grid">
-    @foreach([
-      ['📰', "What's New", 'Fresh updates from campus life, HIMARIS activities, announcements, and student achievements.'],
-      ['🌱', 'Self-improvement', 'Tips, habits, study strategies, and personal development content for students.'],
-      ['🎬', 'Entertainment', 'Fun, light, and engaging content around culture, trends, and student interests.'],
-      ['✨', 'Miscellaneous', "Creative pieces, opinion articles, essays, or content that doesn't fit other categories."],
-      ['👤', 'Inspirational alumni & current students profile', 'Stories and interviews highlighting inspiring academic and career journeys.'],
-      ['⭐', 'Review', 'Reviews of books, films, places, tools, or experiences relevant to students.'],
-      ['📅', 'Upcoming Event', 'Preview or announce an upcoming HIMARIS or campus event with all the key details.'],
-      ['🤝', 'Sponsored content', 'Collaborative or sponsored posts with transparent credit and relevant value for readers.'],
-    ] as [$icon, $name, $desc])
-    <div class="cat-item reveal">
-      <div class="cat-item-icon">{{ $icon }}</div>
-      <div>
-        <div class="cat-item-name">{{ $name }}</div>
-        <div class="cat-item-desc">{{ $desc }}</div>
+  {{-- GUIDELINES GRID --}}
+  <div class="guidelines-grid">
+    
+    {{-- ARTICLES GUIDELINES --}}
+    <div class="guide-card reveal">
+      <div class="guide-card-header">
+        <span class="guide-card-icon">📝</span>
+        <h2 class="guide-card-title">Guidelines for Articles</h2>
       </div>
+      
+      <ul class="guide-list">
+        <li class="guide-item">
+          <strong>1) Accepted Forms</strong>
+          <ul>
+            <li>News Report</li>
+            <li>Review Article</li>
+            <li>Opinion Article</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>2) Title</strong>
+          <ul>
+            <li>The title consists of 10-15 words.</li>
+            <li>The first word and proper nouns are capitalized.</li>
+            <li>The title should be relevant to the topic.</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>3) Short Description</strong>
+          <ul>
+            <li>The short description consists of 50-75 words (3-5 sentences).</li>
+            <li>It highlights the key points of the article.</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>4) Featured Image</strong>
+          <ul>
+            <li>The image size is 1200 × 630 px.</li>
+            <li>The format is JPG or PNG.</li>
+            <li>The source must be included if using someone else’s pictures or free copyright sources such as Freepik, Unsplash, and Pexels.</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>5) Author</strong>
+          <ul>
+            <li>The format follows “By (Full Name)”.<br><span style="font-style:italic;color:var(--gray)">Example: By Deviani Putri Azzahra</span></li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>6) Published Date</strong>
+          <ul>
+            <li>The format follows “Month Day, Year”<br><span style="font-style:italic;color:var(--gray)">Example: October 8, 2025</span></li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>7) Article Structure</strong>
+          <ul>
+            <li>The introduction presents the topic clearly.</li>
+            <li>The body paragraphs explain ideas with examples or evidence.</li>
+            <li>The conclusion summarizes the main points and gives a final insight.</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>8) Additional Notes</strong>
+          <ul>
+            <li>The article is written in English.</li>
+            <li>The article must be original.</li>
+            <li>The submission is in Word document format (.docx).</li>
+            <li>The font used is Times New Roman Typeface (size 12 Font).</li>
+            <li>The text uses justified alignment.</li>
+            <li>The margins are 4cm (top and left) and 3cm (bottom and right).</li>
+            <li>The document uses double spacing.</li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    @endforeach
-  </div>
 
-  {{-- PROSES --}}
-  <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:24px">Submission Process</h2>
-  <div class="process-list">
-    @foreach([
-      ['Fill the Form',       'Open the submission form below. Choose the type of submission — Article or Artwork — and fill in all required fields.'],
-      ['Attach Your Work',    'For articles: paste your Google Doc link (set to "Anyone with link can comment"). For artwork: upload your file directly in the form.'],
-      ['Editorial Review',    'Our editorial team will review your submission within 3–5 business days. We may contact you if edits are needed.'],
-      ['Revision (if needed)','If revisions are requested, you\'ll have 3 days to update your work.'],
-      ['Publication',         'Once approved, your article or artwork will be published on the Himaris Newsletter website with full credit to you.'],
-    ] as $i => [$title, $desc])
-    <div class="process-step reveal">
-      <div class="step-dot">{{ $i + 1 }}</div>
-      <div>
-        <div class="step-title">{{ $title }}</div>
-        <div class="step-desc">{{ $desc }}</div>
+    {{-- ARTWORKS GUIDELINES --}}
+    <div class="guide-card reveal">
+      <div class="guide-card-header">
+        <span class="guide-card-icon">🎨</span>
+        <h2 class="guide-card-title">Guidelines for Artworks</h2>
       </div>
+
+      <ul class="guide-list">
+        <li class="guide-item">
+          <strong>1) Accepted Forms</strong>
+          <ul>
+            <li>Illustration</li>
+            <li>Photography</li>
+            <li>Drawing</li>
+            <li>Painting</li>
+            <li>Digital art</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>2) Requirements</strong>
+          <ul>
+            <li>The format is JPG or PNG.</li>
+            <li>The resolution is at least 1080 px.</li>
+            <li>The artwork must be original.</li>
+          </ul>
+        </li>
+        <li class="guide-item">
+          <strong>3) Additional Information</strong>
+          <ul>
+            <li>The submission includes the title of the artwork.</li>
+            <li>The submission includes the artist’s name.</li>
+            <li>You may tell the story of your artwork in a Word document format (250-750 words, Times New Roman, size 12).</li>
+            <li>The year of creation must be included.</li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    @endforeach
+
   </div>
 
-  {{-- CTA — DUA GFORM --}}
+  {{-- RULES SECTION --}}
+  <div class="rules-box reveal">
+    <h2 class="section-title" style="margin-top:0"><span style="border-bottom: 3px solid var(--gold); padding-bottom: 6px">Acceptance &amp; Rejection of Articles</span></h2>
+    <ul class="rules-list">
+      <li><strong>a.</strong> The project team will select the content of the article whether it is sensitive or not.</li>
+      <li><strong>b.</strong> The article will be published if the author revises the article and if the content is acceptable by the editor in chief.</li>
+      <li><strong>c.</strong> The submission after the deadline will not be accepted.</li>
+      <li><strong>d.</strong> The author will be given one week to revise his/her article.</li>
+      <li><strong>e.</strong> The article will not be published if the author does not send the revised article in accordance with the due date and the suggestions from the editors.</li>
+    </ul>
+  </div>
+
+  {{-- CTA BOXES --}}
   <div class="cta-grid">
 
     {{-- Article Submission --}}
@@ -177,11 +332,11 @@
 
   </div>
 
-  {{-- Catatan kecil di bawah CTA --}}
-  <p style="text-align:center;font-size:.76rem;color:var(--gray);margin-top:18px;">
-    Butuh bantuan? Hubungi kami via
+  {{-- small contact info --}}
+  <p style="text-align:center;font-size:.76rem;color:var(--gray);margin-top:24px;">
+    Need help? Contact us via
     <a href="mailto:himaris@polban.ac.id" style="color:var(--gold);font-weight:600;">himaris@polban.ac.id</a>
-    atau DM Instagram
+    or DM Instagram
     <a href="https://instagram.com/himaris.newsletter" target="_blank" style="color:var(--gold);font-weight:600;">@himaris.newsletter</a>
   </p>
 

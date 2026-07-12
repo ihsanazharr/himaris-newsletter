@@ -48,9 +48,9 @@
           ['Vice President & Treasurer',               'Naufal Maulana Dzakwan'],
           ['Secretary & Division Coordinator',         'Ghifari Nor Amarullah Dirgayusa'],
           ['Marketing',                                'Rizki Akbar Fatihah & Muhammad Fawwaz Firdaus'],
-          ['Operational',                              'Tahir Dzaky Hafidz'],
-          ['Fundraising',                              'Gilang Aji Satria'],
-          ['Job Portal',                               'Raihan Al Ghifari & Ziyanul Hassan'],
+          ['Operational Coordinator',                  'Tahir Dzaky Hafidz'],
+          ['Fundraising Coordinator',                  'Gilang Aji Satria'],
+          ['Job Portal Coordinator',                   'Raihan Al Ghifari & Ziyanul Hassan'],
         ] as [$role, $name])
           <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--gray-light)">
             <span style="font-size:.82rem;color:var(--gray)">{{ $role }}</span>
@@ -62,7 +62,7 @@
 
     {{-- Role Descriptions --}}
     <div style="max-width:800px;margin:0 auto;font-size:.88rem;color:#3a3a3a;line-height:1.85">
-      <p>The <strong>President</strong> leads ESAA by setting its vision and ensuring all activities align with its goals. The <strong>Vice President</strong> supports management and also handles budgeting as Treasurer. The <strong>Secretary</strong> manages administrative tasks and coordinates communication across all divisions. The <strong>Marketing</strong> team promotes programs, manages social media, and maintains relationships with alumni and partners. The <strong>Operational</strong> team organizes events such as reunions, seminars, and social activities, as well as managing volunteer and scholarship programs. The <strong>Fundraising</strong> team manages finances and seeks sponsorships. The <strong>Job Portal</strong> team manages a platform providing job opportunities and career information for alumni.</p>
+      <p>The <strong>President of ESAA</strong> leads the organization by setting its vision and ensuring all activities align with its goals, as well as forming the organizational structure and programs to achieve its objectives. The <strong>Vice President</strong> supports the management of the organization and also handles budgeting as <strong>Treasurer</strong>. The <strong>Secretary</strong> manages administrative tasks and also acts as <strong>Division Coordinator</strong> to coordinate communication across all roles. The <strong>Marketing</strong> team is responsible for managing social media, promoting programs and alumni achievements, and maintaining relationships with alumni and external partners. The <strong>Operational</strong> team organizes events such as reunions, seminars, and social activities, as well as managing volunteer and scholarship programs. The <strong>Fundraising</strong> team manages finances, seeks sponsorships, and supports funding for various programs. Meanwhile, the <strong>Job Portal</strong> team manages a platform that provides job opportunities and career information for alumni.</p>
     </div>
   </div>
 </section>

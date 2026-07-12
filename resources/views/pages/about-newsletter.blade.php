@@ -192,14 +192,43 @@
     <h2 class="abn-h2">What Is Himaris Newsletter?</h2>
     <div class="abn-body">
       <p>
-        <strong>Himaris Newsletter</strong> is the official digital publication platform of HIMARIS — the English Department Student Association of Politeknik Negeri Bandung. Founded to give students a voice, the platform serves as a space where stories, ideas, and achievements of the English Department community can be shared, celebrated, and preserved.
+        <strong>Himaris Newsletter</strong> is a digital newsletter that aims to provide a creative space for English students of Politeknik Negeri Bandung to practice and improve their writings and accommodate students’ creative expressions. Furthermore, it also aims to connect students and alumni and maintain the connection in the long run.
       </p>
       <p>
-        Through Himaris Newsletter, we publish articles written by students, cover department events, spotlight alumni journeys, share scholarship and career opportunities, and provide a window into the day-to-day life of the English Department at POLBAN. The platform is managed entirely by HIMARIS student officers.
+        Previously, the newsletter was distributed through students’ emails and included several sections that highlighted student activities and creative works. Now, for the second volume, the newsletter is developed into a website-based platform so that the content can be accessed more easily by people all around the world. This updated version also introduces new main sections such as Gallery section and Sponsored Content Section, and supporting sections such as Student Resources and Social Media Publication.
       </p>
       <p>
-        Beyond being a publication, Himaris Newsletter is a training ground — a real environment where students develop writing, editing, design, and digital media skills that go far beyond what a classroom can offer.
+        Moreover, Himaris Newsletter now opens opportunities for undergraduate English students from other institutions to contribute their work. By expanding its contributors, the newsletter hopes to create a broader creative community among English students from different universities. It also welcomes collaborations with companies or organizations that would like to be featured in the newsletter, for example through sponsored content that covers product or place reviews and event promotions. Through these collaborations, the newsletter becomes a platform that connects students, alumni, institutions, and external partners in a meaningful way.
       </p>
+      <p>
+        In its second volume, Himaris Newsletter is presented with the theme <strong>“English emerges as a medium for self-expression and personal growth,”</strong> which reflects how English becomes a medium for English students to freely express their thoughts and ideas without limitations. Through this theme, the second volume of the newsletter highlights how students are able to navigate challenges, break through barriers, and grow into their fullest potentials.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--dark); margin: 36px 0 16px; border-bottom: 2px solid var(--gold); padding-bottom: 6px">Newsletter Sections</h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px">
+        <div>
+          <p style="margin-bottom: 8px; font-weight: 700; color: var(--black)">Newsletter Main Sections:</p>
+          <ul style="list-style-type: lower-alpha; padding-left: 20px; line-height: 1.75">
+            <li>What’s New?</li>
+            <li>Inspirational Alumni and Current Student</li>
+            <li>Self-Improvement</li>
+            <li>Entertainment</li>
+            <li>Reviews</li>
+            <li>Miscellaneous</li>
+            <li>Upcoming Events</li>
+            <li>Gallery Section</li>
+          </ul>
+        </div>
+        <div>
+          <p style="margin-bottom: 8px; font-weight: 700; color: var(--black)">Newsletter Supporting Sections:</p>
+          <ul style="list-style-type: lower-alpha; padding-left: 20px; line-height: 1.75">
+            <li><strong>Student Resources:</strong> Competition and scholarship information</li>
+            <li><strong>Career & Opportunities:</strong> Job vacancies and freelance opportunities</li>
+            <li><strong>Social Media Publication:</strong> Digital contents from Instagram, YouTube, TikTok @himarispolban and @himarisnewsletter</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
