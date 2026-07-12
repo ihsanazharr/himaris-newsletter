@@ -265,7 +265,7 @@
       <div class="abn-pillar reveal">
         <div class="abn-pillar-icon">🎓</div>
         <p class="abn-pillar-title">Alumni Stories</p>
-        <p class="abn-pillar-desc">Inspiring profiles and career journeys from alumni of the English Department, D3 and D4.</p>
+        <p class="abn-pillar-desc">Inspiring profiles and career journeys from alumni of the English Department, Diploma III and Diploma IV.</p>
       </div>
       <div class="abn-pillar reveal">
         <div class="abn-pillar-icon">🏆</div>

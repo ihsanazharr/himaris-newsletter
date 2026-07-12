@@ -25,11 +25,11 @@
       <p style="margin-bottom:12px">The English Department offers two study programs:</p>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;padding:0">
         <li style="display:flex;gap:12px;align-items:flex-start">
-          <span style="background:var(--gold);color:var(--black);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">D-3</span>
+          <span style="background:var(--gold);color:var(--black);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">Diploma III</span>
           <span><strong>English Language</strong>, a three-year program, which focuses on practical English communication, translation, and professional writing, preparing students for careers in business correspondence, translation, tourism, and public relations.</span>
         </li>
         <li style="display:flex;gap:12px;align-items:flex-start">
-          <span style="background:var(--dark);color:var(--white);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">D-4</span>
+          <span style="background:var(--dark);color:var(--white);font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px">Diploma IV</span>
           <span><strong>English for Business and Professional Communication</strong>, a four-year program, which focuses on digital media communication and advanced translation, preparing students for careers in business communication, digital content writing, audiovisual translation, and copywriting.</span>
         </li>
       </ul>
