@@ -184,8 +184,42 @@
 <div style="background: var(--off-white); min-height: 400px;">
   <div class="edt-main">
 
-    {{-- ===== VOLUME 2 ===== --}}
+    {{-- ===== VOLUME 1 ===== --}}
     <div class="vol-section reveal">
+      <div class="vol-header">
+        <h2 class="vol-title">Himaris Newsletter Vol. 1</h2>
+        <span class="vol-badge">Volume 1 (2024)</span>
+      </div>
+
+      <div class="edt-grid">
+        <div class="edt-card">
+          <div class="edt-avatar">AM</div>
+          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
+          <div class="edt-role">Writers of the Blueprint</div>
+        </div>
+
+        <div class="edt-card">
+          <div class="edt-avatar">AM</div>
+          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
+          <div class="edt-role">Writers of the Articles</div>
+        </div>
+
+        <div class="edt-card">
+          <div class="edt-avatar">AM</div>
+          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
+          <div class="edt-role">Editors</div>
+        </div>
+
+        <div class="edt-card">
+          <div class="edt-avatar">FF</div>
+          <div class="edt-name">Fadlin Rizqi Fadilah</div>
+          <div class="edt-role">Newsletter Developer</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- ===== VOLUME 2 ===== --}}
+    <div class="vol-section reveal" style="margin-top:56px">
       <div class="vol-header">
         <h2 class="vol-title">Himaris Newsletter Vol. 2</h2>
         <span class="vol-badge">Active (2026)</span>
@@ -244,40 +278,6 @@
           <div class="edt-avatar">AA</div>
           <div class="edt-name">Alifia Adeila &amp; Labib Akbar</div>
           <div class="edt-role">Contributors</div>
-        </div>
-      </div>
-    </div>
-
-    {{-- ===== VOLUME 1 ===== --}}
-    <div class="vol-section reveal" style="margin-top:56px">
-      <div class="vol-header">
-        <h2 class="vol-title">Himaris Newsletter Vol. 1</h2>
-        <span class="vol-badge">Volume 1 (2024)</span>
-      </div>
-
-      <div class="edt-grid">
-        <div class="edt-card">
-          <div class="edt-avatar">AM</div>
-          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
-          <div class="edt-role">Writers of the Blueprint</div>
-        </div>
-
-        <div class="edt-card">
-          <div class="edt-avatar">AM</div>
-          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
-          <div class="edt-role">Writers of the Articles</div>
-        </div>
-
-        <div class="edt-card">
-          <div class="edt-avatar">AM</div>
-          <div class="edt-name">Aquilla Maha Fortuna &amp; Fadlin Rizqi</div>
-          <div class="edt-role">Editors</div>
-        </div>
-
-        <div class="edt-card">
-          <div class="edt-avatar">FF</div>
-          <div class="edt-name">Fadlin Rizqi Fadilah</div>
-          <div class="edt-role">Newsletter Developer</div>
         </div>
       </div>
     </div>
