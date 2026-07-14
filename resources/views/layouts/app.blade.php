@@ -62,6 +62,10 @@
       <a href="{{ route('jobs.index') }}"
          class="{{ request()->routeIs('jobs.*') ? 'active' : '' }}">Career Opportunities</a>
     </li>
+    <li>
+      <a href="{{ route('archive') }}"
+         class="{{ request()->routeIs('archive') ? 'active' : '' }}">Archive</a>
+    </li>
   </ul>
 
   <a href="{{ route('support') }}" class="btn-support">
@@ -86,6 +90,46 @@
         <img src="{{ asset('images/logonewsletter.png') }}" alt="Himaris Newsletter Logo"/>
       </div>
       <span class="footer-brand-name">Himaris Newsletter</span>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Editorial Board</div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Editor in Chief</div>
+        <div class="footer-val" style="color:var(--white);font-weight:600">Deviani Putri Azzahra</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Writers of Blueprint</div>
+        <div class="footer-val">Aditya and Deviani</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Writers of Updated Blueprint</div>
+        <div class="footer-val">Aditya and Deviani</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Writers of Articles</div>
+        <div class="footer-val">Aditya and Deviani</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Editors</div>
+        <div class="footer-val">Aditya and Deviani</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Designer</div>
+        <div class="footer-val">Deviani Putri Azzahra</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Website Designer</div>
+        <div class="footer-val">Aditya Ependi Putra</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Photographer</div>
+        <div class="footer-val">Aditya Ependi Putra</div>
+      </div>
+      <div>
+        <div class="footer-label">Website Administrator</div>
+        <div class="footer-val">Aditya Ependi Putra</div>
+      </div>
     </div>
 
     <div>

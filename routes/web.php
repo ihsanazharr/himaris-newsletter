@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutNewsletterController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\ArchiveController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -45,3 +46,6 @@ Route::get('/unsubscribe/{token}', [SubscriberController::class, 'unsubscribe'])
 
 // Submission Guidelines (static page)
 Route::view('/submission-guidelines', 'pages.submission-guidelines')->name('submission-guidelines');
+
+// Magazine Archive
+Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');

@@ -60,7 +60,7 @@ class EventForm
                     TextInput::make('organizer')
                         ->label('Organizer')
                         ->maxLength(150)
-                        ->placeholder('e.g. HIMARIS, BEM, Jurusan Bahasa Inggris'),
+                        ->placeholder('e.g. Himaris, BEM, Jurusan Bahasa Inggris'),
 
                     TextInput::make('location')
                         ->label('Location / Venue')
