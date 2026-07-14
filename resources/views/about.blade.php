@@ -27,6 +27,11 @@
        style="text-decoration:none">
       Himaris Newsletter
     </a>
+    <a href="{{ route('about.editorial-team') }}"
+       class="tab-btn"
+       style="text-decoration:none">
+      Editorial Team
+    </a>
   </div>
 </div>
 

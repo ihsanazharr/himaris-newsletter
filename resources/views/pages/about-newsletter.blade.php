@@ -179,6 +179,7 @@
     <a href="{{ route('about', 'esaa') }}" class="tab-btn">ESAA</a>
     <a href="{{ route('about', 'english-dept') }}" class="tab-btn">English Department</a>
     <a href="{{ route('about-newsletter') }}" class="tab-btn active">Himaris Newsletter</a>
+    <a href="{{ route('about.editorial-team') }}" class="tab-btn">Editorial Team</a>
   </div>
 </div>
 

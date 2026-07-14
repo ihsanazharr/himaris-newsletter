@@ -3,6 +3,7 @@
 @section('meta_description', 'Meet the creative minds behind Himaris Newsletter. Explore the editorial team, writers, editors, developers, and designers for Volume 1 and Volume 2.')
 
 @push('styles')
+@include('about._styles')
 <style>
 .edt-hero {
   margin-top: var(--nav-h);
@@ -158,8 +159,21 @@
 
 @section('content')
 
+{{-- Spacer below fixed navbar --}}
+<div style="height:var(--nav-h)"></div>
+
+<div class="about-bar">
+  <div class="about-bar-inner">
+    <a href="{{ route('about', 'himaris') }}" class="tab-btn">Himaris</a>
+    <a href="{{ route('about', 'esaa') }}" class="tab-btn">ESAA</a>
+    <a href="{{ route('about', 'english-dept') }}" class="tab-btn">English Department</a>
+    <a href="{{ route('about-newsletter') }}" class="tab-btn">Himaris Newsletter</a>
+    <a href="{{ route('about.editorial-team') }}" class="tab-btn active">Editorial Team</a>
+  </div>
+</div>
+
 {{-- ===== HERO ===== --}}
-<div class="edt-hero">
+<div class="edt-hero" style="margin-top:0">
   <div class="edt-hero-inner">
     <div class="edt-hero-eyebrow">👥 Creative Minds</div>
     <h1>Meet Our <em>Editorial Team</em></h1>
