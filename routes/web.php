@@ -20,6 +20,8 @@ Route::get('/about/{tab?}', [AboutController::class, 'index'])
     ->name('about')
     ->where('tab', 'himaris|esaa|english-dept');
 
+Route::view('/about/editorial-team', 'pages.editorial-team')->name('about.editorial-team');
+
 // Newsletter (Posts)
 Route::get('/newsletter', [PostController::class, 'index'])->name('newsletter.index');
 Route::get('/newsletter/{slug}', [PostController::class, 'show'])->name('newsletter.show');

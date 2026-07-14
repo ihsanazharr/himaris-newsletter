@@ -29,7 +29,7 @@
          class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
     </li>
     <li class="nav-dropdown">
-      <a href="#" class="{{ request()->routeIs('about') || request()->routeIs('about-newsletter') ? 'active' : '' }}">
+      <a href="#" class="{{ request()->routeIs('about') || request()->routeIs('about-newsletter') || request()->routeIs('about.editorial-team') ? 'active' : '' }}">
         About Us
         <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -40,10 +40,11 @@
         <a href="{{ route('about', 'esaa') }}">ESAA</a>
         <a href="{{ route('about', 'english-dept') }}">English Department</a>
         <a href="{{ route('about-newsletter') }}">Himaris Newsletter</a>
+        <a href="{{ route('about.editorial-team') }}">Editorial Team</a>
       </div>
     </li>
     <li class="nav-dropdown">
-      <a href="#" class="{{ request()->routeIs('newsletter.*') || request()->routeIs('gallery.*') ? 'active' : '' }}">
+      <a href="#" class="{{ request()->routeIs('newsletter.*') || request()->routeIs('gallery.*') || request()->routeIs('archive') ? 'active' : '' }}">
         Newsletter
         <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -52,6 +53,7 @@
       <div class="dropdown-menu">
         <a href="{{ route('newsletter.index') }}">Articles</a>
         <a href="{{ route('gallery.index') }}">Gallery</a>
+        <a href="{{ route('archive') }}">2026</a>
       </div>
     </li>
     <li>
@@ -61,10 +63,6 @@
     <li>
       <a href="{{ route('jobs.index') }}"
          class="{{ request()->routeIs('jobs.*') ? 'active' : '' }}">Career Opportunities</a>
-    </li>
-    <li>
-      <a href="{{ route('archive') }}"
-         class="{{ request()->routeIs('archive') ? 'active' : '' }}">Archive</a>
     </li>
   </ul>
 
