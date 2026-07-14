@@ -97,36 +97,36 @@
         <div class="footer-val" style="color:var(--white);font-weight:600">Deviani Putri Azzahra</div>
       </div>
       <div style="margin-bottom:8px">
-        <div class="footer-label">Writers of Blueprint</div>
-        <div class="footer-val">Aditya and Deviani</div>
-      </div>
-      <div style="margin-bottom:8px">
         <div class="footer-label">Writers of Updated Blueprint</div>
-        <div class="footer-val">Aditya and Deviani</div>
+        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
       </div>
       <div style="margin-bottom:8px">
         <div class="footer-label">Writers of Articles</div>
-        <div class="footer-val">Aditya and Deviani</div>
+        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
       </div>
       <div style="margin-bottom:8px">
         <div class="footer-label">Editors</div>
-        <div class="footer-val">Aditya and Deviani</div>
+        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
       </div>
       <div style="margin-bottom:8px">
-        <div class="footer-label">Designer</div>
-        <div class="footer-val">Deviani Putri Azzahra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Website Designer</div>
+        <div class="footer-label">Graphic Designer</div>
         <div class="footer-val">Aditya Ependi Putra</div>
       </div>
       <div style="margin-bottom:8px">
         <div class="footer-label">Photographer</div>
         <div class="footer-val">Aditya Ependi Putra</div>
       </div>
-      <div>
-        <div class="footer-label">Website Administrator</div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Website Developer</div>
         <div class="footer-val">Aditya Ependi Putra</div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="footer-label">Website Administrators</div>
+        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
+      </div>
+      <div>
+        <div class="footer-label">Contributors</div>
+        <div class="footer-val">Alifia Adeila and Labib Akbar</div>
       </div>
     </div>
 
