@@ -194,25 +194,25 @@
       <div class="edt-grid">
         <div class="edt-card">
           <div class="edt-avatar">AM</div>
-          <div class="edt-name">A.M.F. &amp; F.R.F.</div>
+          <div class="edt-name">Aquilla M. F. and Fadlin R. F.</div>
           <div class="edt-role">Writers of the Blueprint</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AM</div>
-          <div class="edt-name">A.M.F. &amp; F.R.F.</div>
+          <div class="edt-name">Aquilla M. F. and Fadlin R. F.</div>
           <div class="edt-role">Writers of the Articles</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AM</div>
-          <div class="edt-name">A.M.F. &amp; F.R.F.</div>
+          <div class="edt-name">Aquilla M. F. and Fadlin R. F.</div>
           <div class="edt-role">Editors</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">FF</div>
-          <div class="edt-name">F.R.F.</div>
+          <div class="edt-name">Fadlin R. F.</div>
           <div class="edt-role">Newsletter Developer</div>
         </div>
       </div>
@@ -228,55 +228,55 @@
       <div class="edt-grid">
         <div class="edt-card">
           <div class="edt-avatar">DP</div>
-          <div class="edt-name">D.P.A.</div>
+          <div class="edt-name">Deviani P. A.</div>
           <div class="edt-role">Editor in Chief</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P. &amp; D.P.A.</div>
+          <div class="edt-name">Aditya E. P. and Deviani P. A.</div>
           <div class="edt-role">Writers of Updated Blueprint</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P. &amp; D.P.A.</div>
+          <div class="edt-name">Aditya E. P. and Deviani P. A.</div>
           <div class="edt-role">Writers of Articles</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P. &amp; D.P.A.</div>
+          <div class="edt-name">Aditya E. P. and Deviani P. A.</div>
           <div class="edt-role">Editors</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P.</div>
+          <div class="edt-name">Aditya E. P.</div>
           <div class="edt-role">Graphic Designer</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P.</div>
+          <div class="edt-name">Aditya E. P.</div>
           <div class="edt-role">Photographer</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P.</div>
+          <div class="edt-name">Aditya E. P.</div>
           <div class="edt-role">Website Developer</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AE</div>
-          <div class="edt-name">A.E.P. &amp; D.P.A.</div>
+          <div class="edt-name">Aditya E. P. and Deviani P. A.</div>
           <div class="edt-role">Website Administrators</div>
         </div>
 
         <div class="edt-card">
           <div class="edt-avatar">AA</div>
-          <div class="edt-name">A.A. &amp; L.A.</div>
+          <div class="edt-name">Alifia A. and Labib A.</div>
           <div class="edt-role">Contributors</div>
         </div>
       </div>
