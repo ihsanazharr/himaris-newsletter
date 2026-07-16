@@ -25,7 +25,13 @@ class PostController extends Controller
             ->limit(3)
             ->get();
 
-        return view('newsletter.index', compact('posts', 'featured'));
+        $photos = \App\Models\Gallery::where('status', 'published')
+            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->limit(6)
+            ->get();
+
+        return view('newsletter.index', compact('posts', 'featured', 'photos'));
     }
 
     public function show(string $slug)

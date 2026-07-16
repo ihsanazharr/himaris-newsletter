@@ -284,31 +284,32 @@
 <div class="archive-hero">
   <div class="archive-hero-inner">
     <div>
-      <div class="archive-hero-eyebrow">📚 Magazine Archive</div>
+      <div class="archive-hero-eyebrow">📚 Volume 2 Archive</div>
       <h1 class="archive-hero-title">
         Himaris Newsletter<br>
-        <span>Magazine Collection</span>
+        <span>2026 Volume</span>
       </h1>
       <p class="archive-hero-desc">
-        Explore all published editions of the Himaris Newsletter magazine — a creative digital platform from the
+        Explore the digital archive of the Himaris Newsletter Volume 2 — a creative digital publication from the
         <strong style="color:rgba(255,255,255,.85)">English Department of Politeknik Negeri Bandung</strong>.
-        Each volume showcases student articles, alumni stories, creative artworks, campus updates, and more.
+        Here you can browse all articles, interviews, review features, and student creative works published in 2026.
       </p>
       <p class="archive-hero-desc" style="margin-bottom:0">
-        Now in its <strong style="color:rgba(255,255,255,.85)">second volume</strong>, the newsletter has evolved into
-        a fully website-based platform, making its content accessible to readers around the world.
+        This volume highlights the theme <strong style="color:rgba(255,255,255,.85)">“English emerges as a medium for self-expression and personal growth,”</strong> giving students a borderless space to share their voices.
       </p>
       <div class="archive-hero-stats" style="margin-top:28px">
         <div>
-          <div class="archive-stat-num">{{ $magazines->count() }}</div>
-          <div class="archive-stat-lbl">Edition{{ $magazines->count() !== 1 ? 's' : '' }} Published</div>
+          <div class="archive-stat-num">
+            {{ $postsByCategory->reduce(function($carry, $item) { return $carry + $item->count(); }, 0) }}
+          </div>
+          <div class="archive-stat-lbl">Articles Published</div>
         </div>
         <div>
           <div class="archive-stat-num">Vol. 2</div>
           <div class="archive-stat-lbl">Latest Volume</div>
         </div>
         <div>
-          <div class="archive-stat-num">2025</div>
+          <div class="archive-stat-num">2026</div>
           <div class="archive-stat-lbl">Year Active</div>
         </div>
       </div>
@@ -316,87 +317,65 @@
 
     <div class="archive-cover-wrap reveal">
       <div class="archive-cover-card">
-        @php
-          $featuredMag = $magazines->first();
-        @endphp
-        @if($featuredMag && $featuredMag->cover_image)
-          <img src="{{ asset('storage/' . $featuredMag->cover_image) }}"
-               alt="{{ $featuredMag->title }} Cover"/>
-        @else
-          <img src="{{ asset('images/covermag.png') }}"
-               alt="Himaris Newsletter Magazine Cover"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div style="display:none;width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--gold-light),rgba(212,160,23,.3));align-items:center;justify-content:center;flex-direction:column;gap:12px">
-            <span style="font-size:3.5rem">📖</span>
-            <span style="font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.08em;text-transform:uppercase">Himaris<br>Newsletter</span>
-          </div>
-        @endif
+        <img src="{{ asset('images/covermag.png') }}" alt="Himaris Newsletter Magazine Cover"/>
       </div>
       <span class="archive-cover-badge">Latest Issue</span>
     </div>
   </div>
 </div>
 
-{{-- ===== MAGAZINE GRID ===== --}}
+{{-- ===== CATEGORIZED ARTICLES ===== --}}
 <div style="background: var(--off-white); min-height: 400px;">
   <div class="archive-main">
 
-    <div class="archive-section-heading">
-      <h2>📰 All Editions</h2>
-      <span style="font-size:.82rem;color:var(--gray)">
-        {{ $magazines->count() }} edition{{ $magazines->count() !== 1 ? 's' : '' }} available
-      </span>
+    <div class="archive-section-heading" style="margin-bottom: 24px;">
+      <h2>📰 Volume 2 Articles by Category</h2>
     </div>
 
-    @if($magazines->count())
-      <div class="archive-grid">
-        @foreach($magazines as $magazine)
-          <div class="mag-card reveal">
-            <div class="mag-card-cover">
-              @if($magazine->cover_image)
-                <img src="{{ asset('storage/' . $magazine->cover_image) }}"
-                     alt="{{ $magazine->title }} Cover"/>
-              @else
-                <span>📖</span>
-              @endif
-            </div>
-            <div class="mag-card-body">
-              @if($magazine->edition)
-                <div class="mag-card-edition">{{ $magazine->edition }}</div>
-              @endif
-              <div class="mag-card-title">{{ $magazine->title }}</div>
-              @if($magazine->description)
-                <p class="mag-card-desc">{{ Str::limit($magazine->description, 120) }}</p>
-              @endif
-              <div class="mag-card-meta">
-                <span>
-                  @if($magazine->author_name)
-                    ✍️ {{ $magazine->author_name }}
-                  @endif
-                </span>
-                <span>
-                  @if($magazine->published_date)
-                    📅 {{ $magazine->published_date->format('M Y') }}
-                  @endif
-                </span>
-              </div>
-              @if($magazine->file_url)
-                <a href="{{ $magazine->file_url }}" target="_blank" class="mag-card-read-btn">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                  </svg>
-                  Read Magazine
+    @if($postsByCategory->count())
+      @foreach([
+        'whats-new'         => "What's New",
+        'self-improvement'  => 'Self-improvement',
+        'entertainment'     => 'Entertainment',
+        'miscellaneous'     => 'Miscellaneous',
+        'alumni-profile'    => 'Inspirational Alumni & Current Students Profile',
+        'review'            => 'Review',
+        'upcoming-event'    => 'Upcoming Event',
+        'sponsored-content' => 'Sponsored Content',
+      ] as $catSlug => $catLabel)
+        @if(isset($postsByCategory[$catSlug]) && $postsByCategory[$catSlug]->count())
+          <div style="margin-bottom: 48px;">
+            <h3 style="font-size:1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 20px; border-bottom: 2.5px solid var(--gold); padding-bottom: 8px; font-style: italic; display: flex; align-items: center; gap: 8px;">
+              📁 {{ $catLabel }}
+            </h3>
+            <div class="archive-grid">
+              @foreach($postsByCategory[$catSlug] as $post)
+                <a href="{{ route('newsletter.show', $post->slug) }}" class="mag-card reveal" style="transform:none; box-shadow:none;">
+                  <div style="width:100%; aspect-ratio:16/10; overflow:hidden;">
+                    @if($post->thumbnail)
+                      <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" style="width:100%; height:100%; object-fit:cover; display:block;"/>
+                    @else
+                      <div style="width:100%; height:100%; background:linear-gradient(135deg,#e8e0cc,#d4c9a8); display:flex; align-items:center; justify-content:center; font-size:2.5rem;">📰</div>
+                    @endif
+                  </div>
+                  <div class="mag-card-body" style="padding:14px 16px 16px;">
+                    <div class="mag-card-title" style="font-size:0.9rem; line-height:1.4;">{{ Str::limit($post->title, 60) }}</div>
+                    <div class="mag-card-meta" style="margin-top:6px; padding-top:8px; border-top:1.5px solid var(--gray-light); font-size:0.68rem; color:var(--gray); display:flex; justify-content:space-between; width:100%;">
+                      <span>By {{ $post->author_name ?? $post->user?->name ?? 'Himaris' }}</span>
+                      <span>{{ $post->published_at?->format('d M Y') ?? $post->created_at->format('d M Y') }}</span>
+                    </div>
+                  </div>
                 </a>
-              @endif
+              @endforeach
             </div>
           </div>
-        @endforeach
-      </div>
+        @endif
+      @endforeach
     @else
       <div class="archive-empty reveal">
-        <div class="archive-empty-icon">📚</div>
-        <h3>No magazines published yet</h3>
-        <p>Magazine editions will appear here once they are published from the admin panel.</p>
+        <div class="archive-empty-icon">📰</div>
+        <h3>No articles published yet</h3>
+        <p>Articles will appear here once they are published from the admin panel.</p>
       </div>
     @endif
 

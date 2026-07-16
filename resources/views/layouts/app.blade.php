@@ -43,18 +43,13 @@
         <a href="{{ route('about.editorial-team') }}">Editorial Team</a>
       </div>
     </li>
-    <li class="nav-dropdown">
-      <a href="#" class="{{ request()->routeIs('newsletter.*') || request()->routeIs('gallery.*') || request()->routeIs('archive') ? 'active' : '' }}">
-        Newsletter
-        <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
-          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <div class="dropdown-menu">
-        <a href="{{ route('archive') }}">2026</a>
-        <a href="{{ route('newsletter.index') }}">Articles</a>
-        <a href="{{ route('gallery.index') }}">Gallery</a>
-      </div>
+    <li>
+      <a href="{{ route('archive') }}"
+         class="{{ request()->routeIs('archive') ? 'active' : '' }}">2026</a>
+    </li>
+    <li>
+      <a href="{{ route('newsletter.index') }}"
+         class="{{ request()->routeIs('newsletter.index') || request()->routeIs('newsletter.show') ? 'active' : '' }}">Articles</a>
     </li>
     <li>
       <a href="{{ route('student-resources.index') }}"
@@ -88,46 +83,6 @@
         <img src="{{ asset('images/logonewsletter.png') }}" alt="Himaris Newsletter Logo"/>
       </div>
       <span class="footer-brand-name">Himaris Newsletter</span>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Editorial Board</div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Editor in Chief</div>
-        <div class="footer-val" style="color:var(--white);font-weight:600">Deviani Putri Azzahra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Writers of Updated Blueprint</div>
-        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Writers of Articles</div>
-        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Editors</div>
-        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Graphic Designer</div>
-        <div class="footer-val">Aditya Ependi Putra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Photographer</div>
-        <div class="footer-val">Aditya Ependi Putra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Website Developer</div>
-        <div class="footer-val">Aditya Ependi Putra</div>
-      </div>
-      <div style="margin-bottom:8px">
-        <div class="footer-label">Website Administrators</div>
-        <div class="footer-val">Aditya Ependi Putra and Deviani Putri Azzahra</div>
-      </div>
-      <div>
-        <div class="footer-label">Contributors</div>
-        <div class="footer-val">Alifia Adeila and Labib Akbar</div>
-      </div>
     </div>
 
     <div>

@@ -71,12 +71,9 @@
   <div class="page-hero-inner">
     <div class="hero-eyebrow">&#10084;&#65039; Support Us</div>
     <h1>Help Us Keep <em>Himaris</em><br>Growing for Everyone.</h1>
-    <p>Every contribution — big or small — goes directly toward running events, producing content, and creating more opportunities for English students at POLBAN.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">120+</div><div class="lbl">Supporters</div></div>
-      <div class="hero-stat"><div class="num">18</div><div class="lbl">Events Funded</div></div>
-      <div class="hero-stat"><div class="num">35+</div><div class="lbl">Articles Published</div></div>
-    </div>
+    <p style="font-size: 1.1rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-top: 16px;">
+      120+ Supporters &middot; 18 Events Funded &middot; 35+ Articles Published
+    </p>
   </div>
 </div>
 
