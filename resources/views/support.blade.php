@@ -120,22 +120,28 @@
       <p class="qris-via">Scan via any QRIS-supported app</p>
     </div>
 
-    <div class="bank-card reveal">
-      <div class="method-label">Bank Transfer</div>
-      <div class="method-title">Direct Bank Transfer</div>
-      <div class="method-desc">Transfer to any of the accounts below. Include your name and "Himaris" in the transfer notes.</div>
-      <div class="bank-list">
-        <div class="bank-item">
-          <div class="bank-logo">BCA</div>
-          <div style="flex:1">
-            <p class="bank-name">Bank Central Asia</p>
-            <p class="bank-number">1393728713</p>
-            <p class="bank-holder">BCA A/N DEVIANI PUTRI AZZAHRA</p>
+    <div class="bank-card reveal" style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="method-label">Bank Transfer</div>
+        <div class="method-title">Direct Bank Transfer</div>
+        <div class="method-desc" style="margin-bottom:20px;">Transfer directly to our bank account. Please include your name and "Himaris" in the transfer note.</div>
+      </div>
+      
+      <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:16px 0;">
+        <div class="bank-item" style="width:100%; padding:24px 20px; border:1.5px solid var(--gray-light); background:var(--white); border-radius:12px; display:flex; align-items:center; gap:16px; transition:border-color var(--transition);">
+          <div class="bank-logo" style="width:52px; height:52px; border-radius:10px; background:var(--gold-light); border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; flex-shrink:0; color:var(--black); text-align:center; line-height:1.3;">BCA</div>
+          <div style="flex:1;">
+            <p class="bank-name" style="font-size:.72rem; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.06em; margin-bottom:2px;">Bank Central Asia</p>
+            <p class="bank-number" style="font-size:1.2rem; font-weight:700; color:var(--dark); letter-spacing:.04em; margin:2px 0;">1393728713</p>
+            <p class="bank-holder" style="font-size:.76rem; color:var(--gray);">A/N DEVIANI PUTRI AZZAHRA</p>
           </div>
-          <button class="btn-copy" data-num="1393728713" onclick="copyNum(this)">Copy</button>
+          <button class="btn-copy" data-num="1393728713" onclick="copyNum(this)" style="padding:6px 12px; background:transparent; border:1.5px solid var(--gray-light); border-radius:6px; font-family:var(--font); font-size:.7rem; font-weight:600; color:var(--gray); cursor:pointer; transition:all var(--transition); white-space:nowrap; flex-shrink:0;">Copy</button>
         </div>
       </div>
-      <p class="bank-note"><strong>Important:</strong> QRIS menyusul.</p>
+
+      <div style="padding-top:20px; border-top:1px solid var(--gray-light); font-size:.75rem; color:var(--gray); text-align:center; line-height:1.4;">
+        Thank you for supporting Himaris Newsletter!
+      </div>
     </div>
   </div>
 
