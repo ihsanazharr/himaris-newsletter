@@ -113,17 +113,8 @@
       <div class="method-label">Scan &amp; Pay</div>
       <div class="method-title">QRIS — All E-Wallets &amp; Banking Apps</div>
       <div class="method-desc">Scan the QR code using GoPay, OVO, Dana, ShopeePay, BCA Mobile, BSI Mobile, and more.</div>
-      <div class="qris-img-wrap">
-        {{-- Ganti dengan: <img src="{{ asset('images/qris.png') }}" alt="QRIS Himaris"/> --}}
-        <div class="qris-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:52px;height:52px;opacity:.3">
-            <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/>
-            <rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="3" height="3"/>
-            <rect x="18" y="13" width="3" height="3"/><rect x="13" y="18" width="3" height="3"/>
-            <rect x="18" y="18" width="3" height="3"/>
-          </svg>
-          <span>Your QRIS code will<br>appear here</span>
-        </div>
+      <div class="qris-img-wrap" style="background:#fff">
+        <img src="{{ asset('images/qrisnewsletter.jpg') }}" alt="QRIS Himaris Newsletter" style="width:100%;height:100%;object-fit:contain;display:block"/>
       </div>
       <p class="qris-name">Himaris — English Dept POLBAN</p>
       <p class="qris-via">Scan via any QRIS-supported app</p>

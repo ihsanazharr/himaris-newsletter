@@ -43,13 +43,17 @@
         <a href="{{ route('about.editorial-team') }}">Editorial Team</a>
       </div>
     </li>
-    <li>
-      <a href="{{ route('archive') }}"
-         class="{{ request()->routeIs('archive') ? 'active' : '' }}">2026</a>
-    </li>
-    <li>
-      <a href="{{ route('newsletter.index') }}"
-         class="{{ request()->routeIs('newsletter.index') || request()->routeIs('newsletter.show') ? 'active' : '' }}">Articles</a>
+    <li class="nav-dropdown">
+      <a href="#" class="{{ request()->routeIs('newsletter.index') || request()->routeIs('newsletter.show') || request()->routeIs('archive') ? 'active' : '' }}">
+        Articles
+        <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="dropdown-menu">
+        <a href="{{ route('archive') }}">2026</a>
+        <a href="{{ route('newsletter.index') }}">Articles</a>
+      </div>
     </li>
     <li>
       <a href="{{ route('student-resources.index') }}"
