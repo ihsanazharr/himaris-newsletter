@@ -31,8 +31,8 @@
 .method-label{font-size:.68rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
 .method-title{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
 .method-desc{font-size:.8rem;color:var(--gray);margin-bottom:20px;line-height:1.55;}
-.qris-img-wrap{width:220px;height:220px;border:2px solid var(--gray-light);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--off-white);margin-bottom:14px;overflow:hidden;}
-.qris-img-wrap img{width:100%;height:100%;object-fit:contain;}
+.qris-img-wrap{width:100%;max-width:320px;height:auto;border:1.5px solid var(--gray-light);border-radius:12px;background:#fff;margin-bottom:14px;overflow:hidden;}
+.qris-img-wrap img{width:100%;height:auto;display:block;}
 .qris-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--gray-mid);font-size:.75rem;font-weight:500;text-align:center;}
 .qris-name{font-size:.82rem;font-weight:700;color:var(--dark);margin-top:4px;}
 .qris-via{font-size:.72rem;color:var(--gray);}
@@ -71,8 +71,8 @@
   <div class="page-hero-inner">
     <div class="hero-eyebrow">&#10084;&#65039; Support Us</div>
     <h1>Help Us Keep <em>Himaris</em><br>Growing for Everyone.</h1>
-    <p style="font-size: 1.1rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-top: 16px;">
-      120+ Supporters &middot; 18 Events Funded &middot; 35+ Articles Published
+    <p style="font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 580px; margin: 16px auto 0; line-height: 1.7;">
+      Every contribution, big or small, goes directly toward the development of the Himaris Newsletter to produce high-quality content and to continue serving as a platform for English students to grow.
     </p>
   </div>
 </div>
