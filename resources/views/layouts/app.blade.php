@@ -63,6 +63,11 @@
       <a href="{{ route('jobs.index') }}"
          class="{{ request()->routeIs('jobs.*') ? 'active' : '' }}">Career Opportunities</a>
     </li>
+    <li class="mobile-only-nav">
+      <a href="{{ route('support') }}" class="mobile-btn-support">
+        Support Us
+      </a>
+    </li>
   </ul>
 
   <a href="{{ route('support') }}" class="btn-support">

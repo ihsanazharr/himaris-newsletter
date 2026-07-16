@@ -756,3 +756,29 @@ a.footer-val:hover { color: var(--gold); }
   .hero-title { font-size: 1.4rem; }
   .hero-sub { font-size: 0.85rem; }
 }
+
+/* ====== MOBILE SUPPORT BUTTON ====== */
+.mobile-only-nav { display: none; }
+@media (max-width: 900px) {
+  .mobile-only-nav { display: block; padding: 12px 20px; }
+  .mobile-btn-support {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: 1.5px solid var(--black) !important;
+    box-shadow: 2px 2px 0 var(--black) !important;
+    text-align: center;
+    padding: 10px 16px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+  }
+  .mobile-btn-support:hover {
+    background: var(--gold-bright) !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--black) !important;
+  }
+}
