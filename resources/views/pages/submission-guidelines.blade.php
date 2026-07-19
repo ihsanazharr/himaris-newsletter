@@ -184,7 +184,7 @@
         <li class="guide-item">
           <strong>2) Title</strong>
           <ul>
-            <li>The title consists of a maximum of 10-15 words.</li>
+            <li>The title consists of a maximum of 15 words.</li>
             <li>The first word and proper nouns are capitalized.</li>
             <li>The title should be relevant to the topic.</li>
           </ul>
