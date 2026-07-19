@@ -45,7 +45,7 @@
     </li>
     <li class="nav-dropdown">
       <a href="#" class="{{ request()->routeIs('newsletter.index') || request()->routeIs('newsletter.show') || request()->routeIs('archive') ? 'active' : '' }}">
-        Articles
+        Newsletters
         <svg class="nav-chevron" viewBox="0 0 12 12" fill="none">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
