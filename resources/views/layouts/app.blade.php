@@ -51,7 +51,7 @@
         </svg>
       </a>
       <div class="dropdown-menu">
-        <a href="{{ route('archive') }}">2026</a>
+        <a href="{{ route('archive') }}">2026 Volume</a>
         <a href="{{ route('newsletter.index') }}">Articles</a>
       </div>
     </li>

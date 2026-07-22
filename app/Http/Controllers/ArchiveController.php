@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Magazine;
 use App\Models\Post;
 use Illuminate\View\View;
@@ -34,6 +35,16 @@ class ArchiveController extends Controller
             // Fail silently
         }
 
-        return view('archive.index', compact('magazines', 'postsByCategory'));
+        $photos = collect();
+        try {
+            $photos = Gallery::where('status', 'published')
+                ->orderBy('date', 'desc')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        } catch (\Exception $e) {
+            // Fail silently
+        }
+
+        return view('archive.index', compact('magazines', 'postsByCategory', 'photos'));
     }
 }

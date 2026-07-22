@@ -292,7 +292,7 @@
       <p class="archive-hero-desc">
         Explore the digital archive of the Himaris Newsletter Volume 2 — a creative digital publication from the
         <strong style="color:rgba(255,255,255,.85)">English Department of Politeknik Negeri Bandung</strong>.
-        Here you can browse all articles, interviews, review features, and student creative works published in 2026.
+        Here you can browse all articles, profiles, review features, and student creative works published in 2026.
       </p>
       <p class="archive-hero-desc" style="margin-bottom:0">
         This volume highlights the theme <strong style="color:rgba(255,255,255,.85)">“English emerges as a medium for self-expression and personal growth,”</strong> giving students a borderless space to share their voices.
@@ -379,6 +379,55 @@
       </div>
     @endif
 
+  </div>
+</div>
+
+{{-- ===== GALLERY SECTION ===== --}}
+<div style="background:var(--white); border-top: 3px solid var(--black); padding: 60px 32px 72px;">
+  <div style="max-width:1160px; margin: 0 auto;">
+    <div class="archive-section-heading" style="margin-bottom:32px">
+      <h2>📸 Gallery</h2>
+    </div>
+
+    @if($photos->count())
+      <div class="cat-grid">
+        @foreach($photos as $photo)
+          <a href="{{ route('gallery.show', $photo->id) }}" class="cat-card reveal">
+            <div class="cat-thumb">
+              @if($photo->image)
+                <img src="{{ asset('storage/' . $photo->image) }}" alt="{{ $photo->title }}"/>
+              @else
+                📷
+              @endif
+            </div>
+            <div class="cat-foot">
+              <div>
+                <h3>{{ Str::limit($photo->title, 40) }}</h3>
+                <p>
+                  @if($photo->date)
+                    {{ $photo->date->format('d M Y') }}
+                  @endif
+                  @if($photo->location)
+                    {{ $photo->date ? ' • ' : '' }}{{ $photo->location }}
+                  @endif
+                </p>
+              </div>
+              <div class="cat-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        @endforeach
+      </div>
+    @else
+      <div style="text-align:center;padding:60px 0;color:var(--gray)">
+        <div style="font-size:3rem;margin-bottom:12px">📷</div>
+        <p style="font-weight:600">No photos yet.</p>
+        <p style="font-size:0.85rem;margin-top:6px">Check back soon for gallery updates!</p>
+      </div>
+    @endif
   </div>
 </div>
 
