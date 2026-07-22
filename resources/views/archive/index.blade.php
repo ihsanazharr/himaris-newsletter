@@ -275,6 +275,18 @@
   .archive-main { padding: 32px 16px 56px; }
   .archive-hero-inner { padding: 0 16px; }
 }
+
+/* ===== GALLERY CARD STYLES (mirrored from newsletter page) ===== */
+.cat-card { background: var(--white); border-radius: 8px; overflow: hidden; border: 1.5px solid var(--gray-light); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); text-decoration: none; display: block; }
+.cat-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.09); border-color: var(--gold); }
+.cat-thumb { width: 100%; height: 160px; background: linear-gradient(135deg,#e8e0cc,#d4c9a8); display: flex; align-items: center; justify-content: center; font-size: 2.6rem; overflow: hidden; }
+.cat-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cat-foot { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+.cat-foot h3 { font-size: 0.93rem; font-weight: 600; color: var(--black); }
+.cat-foot p { font-size: 0.7rem; color: var(--gray); margin-top: 3px; }
+.cat-btn { width: 34px; height: 34px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background var(--transition), transform var(--transition); }
+.cat-card:hover .cat-btn { background: var(--gold-bright); transform: rotate(8deg); }
+.cat-btn svg { width: 15px; height: 15px; color: var(--black); }
 </style>
 @endpush
 
