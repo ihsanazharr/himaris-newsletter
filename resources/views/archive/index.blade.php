@@ -312,7 +312,7 @@
       <div class="archive-hero-stats" style="margin-top:28px">
         <div>
           <div class="archive-stat-num">
-            {{ $postsByCategory->reduce(function($carry, $item) { return $carry + $item->count(); }, 0) }}
+            {{ $postsByCategory->reduce(function($carry, $item) { return $carry + $item->count(); }, 0) + $photos->count() }}
           </div>
           <div class="archive-stat-lbl">Articles Published</div>
         </div>
